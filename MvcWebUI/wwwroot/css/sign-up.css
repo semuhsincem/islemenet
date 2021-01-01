@@ -1,0 +1,139 @@
+.step-header{
+    text-align: center;
+}
+
+.step-title{
+    margin-bottom: 2rem;
+}
+
+.step-title p{
+    margin-bottom: 1.5rem;
+}
+
+.sign-up-pills{
+    justify-content: center;
+}
+.sign-up-step-link{
+    background-color: #D8D8D8;
+    justify-content: center;
+    padding: .5rem 5rem;
+    border-radius: 0;
+    border: 0;
+    margin: 0;
+    
+    /* buton click engelleme kodu */
+    /* pointer-events: none; */
+    /* buton click engelleme kodu */
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: var(--orange);
+}
+
+.w-45{
+    width: 45% !important;
+}
+
+.w-30{
+    width: 30% !important;
+}
+
+.role-input, .industry-input, .gender-input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.role-label, .industry-label, .gender-label{
+    background-color: transparent;
+    border: 1px solid var(--border-dark-color);
+    width: 100%;
+}
+
+.role-input[type="radio"]:checked + label, .industry-input[type="radio"]:checked + label, .gender-input[type="radio"]:checked + label{
+    background-color: var(--orange);
+    color: white;
+    border: 0;
+}
+
+
+.role-title, .industry-title{
+    padding-left: .7rem;
+    padding-bottom: .7rem;
+}
+
+.signup-form-group{
+    border: 1px solid var(--border-dark-color);
+    padding-left: 1rem;
+    padding-top: 3px;
+}
+
+.signup-form-group small{
+    text-align: left;
+}
+
+.signup-form-control{
+    border: 0;
+    padding: 0;
+    height: 30px;
+}
+
+.btn-signup-contunie, .btn-signup-contunie:hover, .btn-signup-complate, .btn-signup-complate:hover{
+    background-color: var(--orange);
+    height: 54px;
+    color: white;
+}
+
+.btn-back-signup, .btn-back-signup:hover{
+    background-color: transparent;
+    height: 54px;
+    border: 1px solid var(--border-dark-color);
+}
+
+.avail-matter-div, .user-data-info-div, .company-profile-info-div{
+    background-color: var(--dark-blue);
+    padding: 2rem;
+    color: white;
+    margin-top: 3rem;
+}
+
+.avail-matter-div h4{
+    margin-bottom: 2rem;
+}
+
+.avail-matter-div h6, .user-data-info-div h6, .user-data-info-div h4, .company-profile-info-div h4, .company-profile-info-div h6{
+    margin-bottom: 1rem;
+}
+.avail-matter-div li, .user-data-info-div li, .company-profile-info-div li{
+    margin-bottom: .7rem;
+}
+
+
+@media screen and (max-width: 768px) {
+    .w-30{
+        width: 29% !important;
+    }
+    .sign-up-step-link{
+        padding: .5rem 4rem;
+    }
+
+    .btn-signup-contunie,  .btn-signup-complate{
+        margin-top: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+    .sign-up-step-link{
+        padding: .5rem 3.5rem;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .w-30{
+        width: 28% !important;
+    }
+    .sign-up-step-link{
+        padding: .5rem 3rem;
+    }
+}

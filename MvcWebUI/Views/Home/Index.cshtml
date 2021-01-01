@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/_Layout2.cshtml";
+}
+
+
+
+
+<ul class="nav nav-pills tab-menu-buttons" id="pills-tab" role="tablist">
+    <li class="nav-item tab-menu-button" role="presentation">
+        <a class="nav-link active" id="pills-search-tab" data-toggle="pill" href="#pills-search" role="tab"
+           aria-controls="pills-search" aria-selected="true"> <i class="fas fa-search"></i> &nbsp;SEARCH RFQS</a>
+    </li>
+    <li class="nav-item tab-menu-button" role="presentation">
+        <a class="nav-link" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab"
+           aria-controls="pills-create" aria-selected="false"><i class="far fa-file"></i> &nbsp; CREATE RFQS</a>
+    </li>
+    <li class="nav-item tab-menu-button" role="presentation">
+        <a class="nav-link" id="pills-my-tab" data-toggle="pill" href="#pills-my" role="tab"
+           aria-controls="pills-my" aria-selected="false"><i class="far fa-file-alt"></i> &nbsp; MY RFQS </a>
+    </li>
+    <li class="nav-item tab-menu-button" role="presentation">
+        <a class="nav-link" id="pills-sent-tab" data-toggle="pill" href="#pills-sent" role="tab"
+           aria-controls="pills-sent" aria-selected="false"><i class="fas fa-bars"></i> &nbsp; SENT QUOTES </a>
+    </li>
+    <li class="nav-item tab-menu-button" role="presentation">
+        <a class="nav-link" id="pills-search-comp-tab" data-toggle="pill" href="#pills-search-comp" role="tab"
+           aria-controls="pills-search-comp" aria-selected="false">
+            <i class="fas fa-search"></i> &nbsp; SEARCH
+            COMPANIES
+        </a>
+    </li>
+    <li class="nav-item tab-menu-button" role="presentation">
+        <a class="nav-link" id="pills-other-tab" data-toggle="pill" href="#pills-other" role="tab"
+           aria-controls="pills-other" aria-selected="false">
+            <i class="fas fa-ellipsis-h"></i> &nbsp; OTHER
+            FUNCTIONS
+        </a>
+    </li>
+    <li class="nav-item tab-menu-button" role="presentation">
+        <a class="nav-link" id="pills-help-tab" data-toggle="pill" href="#pills-help" role="tab"
+           aria-controls="pills-help" aria-selected="false"><i class="far fa-question-circle"></i> &nbsp; HELP</a>
+    </li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-search" role="tabpanel" aria-labelledby="pills-search-tab">
+        <div class="tab-header">
+            <h4>
+                Search RFQs
+            </h4>
+            Start a new search using the smart filters and set up an email notification
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    @await Component.InvokeAsync("SearchRFQ") 
+                </div>
+
+                <div class="col-md-9">
+                   @await Component.InvokeAsync("RFQList") 
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-9">
+                    <div class="create-rfq-div">
+                        <h4>Important for manufacturers!</h4>
+                        <p>
+                            If your workload is too high, or your machinery breaks down, you can outsource to
+                            qualified CNC Manufacturing companies on short notice.
+                        </p>
+                        <button class="btn btn-create-rfq">
+                            CRATE AN RFQ
+                        </button>
+                    </div>
+
+                    <div class="new-companies mt-3">
+                        @await Component.InvokeAsync("Companies")
+                    </div>
+                </div>
+                <div class="col-md-3">
+                   @await Component.InvokeAsync("NewCompanies") 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
+        @await Component.InvokeAsync("CreateRFQ") 
+    </div>
+    <div class="tab-pane fade" id="pills-my" role="tabpanel" aria-labelledby="pills-my-tab">...b</div>
+    <div class="tab-pane fade" id="pills-sent" role="tabpanel" aria-labelledby="pills-sent-tab">...c</div>
+    <div class="tab-pane fade" id="pills-search-comp" role="tabpanel" aria-labelledby="pills-search-comp-tab">
+        ...d
+    </div>
+    <div class="tab-pane fade" id="pills-other" role="tabpanel" aria-labelledby="pills-other-tab">...e</div>
+    <div class="tab-pane fade" id="pills-help" role="tabpanel" aria-labelledby="pills-help-tab">...f</div>
+</div>

@@ -1,0 +1,72 @@
+.market-div{
+    text-align: center;
+}
+
+.page-slogan > span{
+    color: var(--orange);
+}
+
+.plan{
+    border: 1px solid var(--orange);
+    margin-top: 5rem;
+    margin-bottom: 6.25rem;
+    transition: 300ms all;
+    cursor: pointer;
+    min-height: 700px;
+    position: relative;
+}
+
+.plan-price{
+    padding-top: 2rem;
+}
+
+.plan-name{
+    padding-top: 1.5rem;
+    padding-bottom: .5rem;
+    margin-bottom: 0;
+}
+
+.plan-items{
+    list-style-type: none;
+    padding-left: 2rem;
+    padding-top: 4rem;
+    text-align: left;
+}
+
+.plan-items li{
+    padding-bottom: 2rem;
+}
+
+.plan-items li::before{
+    content: url("/img/icons/market-check-mark-orange.svg");
+    padding-right: 1rem;
+}
+
+.btn-get-start{
+    background-color: var(--orange);
+    height: 62px;
+    width: 75%;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    color: white;
+    transition: 300ms all;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 0;
+}
+
+.plan:hover{
+    background-color: var(--orange);
+    color: white;
+    transform: scale(1.1);
+}
+
+.plan:hover .btn-get-start{
+    background-color: white;
+    color: var(--orange);
+}
+
+.plan:hover .plan-items li::before{
+    content: url("/img/icons/market-check-mark-white.svg");
+}

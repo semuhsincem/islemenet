@@ -1,0 +1,42 @@
+﻿@using Helper.Constants
+@model ViewModels.Login.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <div class="login-div my-5">
+        <h3 class="page-header">Giriş Yap</h3>
+        @if (TempData[ConstantHelper.ErrorMessage] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                <b>@Html.Raw(TempData[ConstantHelper.ErrorMessage]) </b>
+            </div>
+        }
+        @if (TempData[ConstantHelper.Success] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                <b>@Html.Raw(TempData[ConstantHelper.Success]) </b>
+            </div>
+        }
+        <form asp-action="Login" asp-controller="Login" method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-group login-form-group">
+                <small id="emailHelp" class="form-text">E-Mail</small>
+                <input type="email" name="username" class="form-control login-form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group mb-0 login-form-group">
+                <small id="passwordHelp" class="form-text">Password</small>
+                <input type="password" name="password" class="form-control login-form-control" id="exampleInputPassword1">
+            </div>
+            <div class="forget-password">
+                <a href="">Parolamı Unuttum</a>
+            </div>
+            <button type="submit" class="btn btn-block btn-login-submit">GİRİŞ YAP</button>
+        </form>
+        <div class="register-div">
+            <p>You are not registered yet?</p>
+            <a href="/Login/Register" target="_blank">Ücretsiz Kayıt Ol!</a>
+        </div>
+    </div>
+</div>

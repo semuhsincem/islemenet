@@ -1,0 +1,536 @@
+﻿@using ViewModels.RFQ
+@model CreateRFQViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+<form class="form" method="post" action="/RFQ/CREATE" enctype="multipart/form-data">
+
+    <div class="card card-custom">
+        <div class="card-header">
+            <h3 class="card-title">
+                ORDER SUMMARY
+            </h3>
+        </div>
+        <!--begin::Form-->
+        <div class="card-body">
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12" asp-for="Title">Title*</label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                    <input type="text" class="form-control" asp-for="Title" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12" asp-for="Quantity"></label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                    <input type="number" class="form-control" asp-for="Quantity" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12" asp-for="Need"></label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                    <select class="form-control selectpicker" asp-for="Need">
+                        <option value="1">One-off Requirement</option>
+                        <option value="2">Annual Requirement</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12" asp-for="RFQDeadline">RFQ Deadline</label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                    <div class="input-group date">
+                        <input type="text" class="form-control" name="RFQDeadline" readonly value="@DateTime.Now.ToString("MM/dd/yyyy")" id="kt_datepicker_3" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="la la-calendar"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <span class="form-text text-muted">RFQ Deadline</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12"   asp-for="DeliveryDate">Delivery Date</label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                    <div class="input-group date">
+                        <input type="text" class="form-control" readonly name="DeliveryDate" value="@DateTime.Now.ToString("MM/dd/yyyy")" id="kt_datepicker_3" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="la la-calendar"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <span class="form-text text-muted">Delivery Date</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label text-right col-lg-3 col-sm-12" asp-for="CustomRFQId">Custom RFQ-ID*</label>
+                <div class="col-lg-4 col-md-9 col-sm-12">
+                    <input type="text" class="form-control" name="CustomRFQId" placeholder="Enter your own RFQ-ID" />
+                </div>
+            </div>
+
+        </div>
+        @*<div class="card-footer">
+                <div class="form-group row">
+                    <div class="col-lg-9 ml-lg-auto">
+                        <button type="reset" class="btn btn-primary mr-2">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>*@
+
+        <!--end::Form-->
+
+    </div>
+    <br />
+    <div class="card card-custom">
+        <div class="card-header">
+            <h3 class="card-title">
+                WORKPIECE DATA
+            </h3>
+        </div>
+        <!--begin::Form-->
+
+        <div class="card-body">
+
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label text-lg-right">Add Files:</label>
+                <div class="col-lg-9">
+                    <span class="form-text text-muted">
+                        Please add drawings and documents to help manufacturers make precise estimations. You may also add your terms of service and other files relevant to this RFQ.
+                    </span>
+                    @*<div class="dropzone dropzone-multi" id="kt_dropzone_4">
+                            <div class="dropzone-panel mb-lg-0 mb-2">
+                                <a class="dropzone-select btn btn-light-primary font-weight-bold btn-sm">Attach files</a>
+                                <a class="dropzone-upload btn btn-light-primary font-weight-bold btn-sm">Upload All</a>
+                                <a class="dropzone-remove-all btn btn-light-primary font-weight-bold btn-sm">Remove All</a>
+                            </div>
+                            <div class="dropzone-items">
+                                <div class="dropzone-item" style="display:none">
+                                    <div class="dropzone-file">
+                                        <div class="dropzone-filename" title="some_image_file_name.jpg"><span data-dz-name>some_image_file_name.jpg</span> <strong>(<span data-dz-size>340kb</span>)</strong></div>
+                                        <div class="dropzone-error" data-dz-errormessage></div>
+                                    </div>
+                                    <div class="dropzone-progress">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-primary" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-dz-uploadprogress></div>
+                                        </div>
+                                    </div>
+                                    <div class="dropzone-toolbar">
+                                        <span class="dropzone-start"><i class="flaticon2-arrow"></i></span>
+                                        <span class="dropzone-cancel" data-dz-remove style="display: none;"><i class="flaticon2-cross"></i></span>
+                                        <span class="dropzone-delete" data-dz-remove><i class="flaticon2-cross"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    <input type="file" asp-for="Files" id="Files" multiple />
+                    <span class="form-text text-muted">Max file size is 1MB and max number of files is 5.</span>
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label text-lg-right">3D visualization powered by AUTODESK:</label>
+                <div class="col-lg-9">
+                    <span class="form-text text-muted">
+                        Additionally, you may use the option to convert your 2D or 3D drawings via AUTODESK ForgeTM Viewer into a 2D or 3D viewing format.
+                    </span>
+                    <input type="file" multiple asp-for="ThreeDFiles" id="Files" />
+
+                    <span class="form-text text-muted">Max file size is 1MB and max number of files is 5.</span>
+
+                </div>
+            </div>
+            <h3>Dimensions</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label text-lg-right" asp-for="Length"></label>
+                        <div class="input-icon input-icon-right">
+                            <input type="number" class="form-control" asp-for="Length" placeholder="Length of Workpiece">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label text-lg-right" asp-for="Width"></label>
+                        <div class="input-icon input-icon-right">
+                            <input type="number" class="form-control" asp-for="Width" name="Width" placeholder="Width of Workpiece">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label text-lg-right" asp-for="Height"></label>
+                        <div class="input-icon input-icon-right">
+                            <input type="number" class="form-control" asp-for="Height" placeholder="Height of Workpiece">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label text-lg-right" asp-for="Diameter">Diameter*</label>
+                        <div class="input-icon input-icon-right">
+                            <input type="number" class="form-control" asp-for="Diameter" placeholder="Diameter of Workpiece">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label text-lg-right" asp-for="MinTol"></label>
+                        <div class="input-icon input-icon-right">
+                            <input type="number" class="form-control" asp-for="MinTol" placeholder="Min Tolerance of Workpiece">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--end::Form-->
+    </div>
+    <br />
+    <div class="card card-custom">
+        <div class="card-header">
+            <h3 class="card-title">
+                ADDITIONAL INFORMATION
+            </h3>
+        </div>
+        <!--begin::Form-->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-form-label text-right col-lg-3 col-sm-12" asp-for="BasicInformation"></label>
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            <textarea class="form-control" asp-for="BasicInformation" name="BasicInformation" data-provide="markdown" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-form-label text-right col-lg-3 col-sm-12" asp-for="OfferCurrency">Offer currency*</label>
+                        <div class="col-lg-6 col-md-9 col-sm-12">
+                            <select class="form-control selectpicker">
+                                <option>Please Check</option>
+                                <option>TRY</option>
+                                <option>AED</option>
+                                <option>AFN</option>
+                                <option>ALL</option>
+                                <option>AMD</option>
+                                <option>ANG</option>
+                                <option>AOA</option>
+                                <option>ARS</option>
+                                <option>AUD</option>
+                                <option>AWG</option>
+                                <option>AZN</option>
+                                <option>BAM</option>
+                                <option>BDD</option>
+                                <option>BDT</option>
+                                <option>BGN</option>
+                                <option>BHD</option>
+                                <option>BIF</option>
+                                <option>BMD</option>
+                                <option>BND</option>
+                                <option>BOB</option>
+                                <option>BRL</option>
+                                <option>BSD</option>
+                                <option>BTN</option>
+                                <option>BWP</option>
+                                <option>BYZ</option>
+                                <option>CAD</option>
+                                <option>CDF</option>
+                                <option>CHE</option>
+                                <option>CHF</option>
+                                <option>CLF</option>
+                                <option>CNY</option>
+                                <option>COP</option>
+                                <option>CRC</option>
+                                <option>CUC</option>
+                                <option>CVE</option>
+                                <option>CZK</option>
+                                <option>DJF</option>
+                                <option>DKK</option>
+                                <option>DOP</option>
+                                <option>DZD</option>
+                                <option>EGP</option>
+                                <option>ERN</option>
+                                <option>EUR</option>
+                                <option>FJD</option>
+                                <option>FKP</option>
+                                <option>GBP</option>
+                                <option>GEL</option>
+                                <option>GGP</option>
+                                <option>GHS</option>
+                                <option>GIP</option>
+                                <option>GMD</option>
+                                <option>GNF</option>
+                                <option>GTQ</option>
+                                <option>GYD</option>
+                                <option>HKD</option>
+                                <option>HNL</option>
+                                <option>HRK</option>
+                                <option>HTG</option>
+                                <option>HUF</option>
+                                <option>IDR</option>
+                                <option>ILS</option>
+                                <option>INR</option>
+                                <option>IQD</option>
+                                <option>IRR</option>
+                                <option>ISK</option>
+                                <option>JMD</option>
+                                <option>JOD</option>
+                                <option>JPY</option>
+                                <option>KES</option>
+                                <option>KGS</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label text-right col-lg-3 col-sm-12" asp-for="CorrespondenceLanguage"></label>
+                        <div class=" col-lg-6 col-md-12 col-sm-12">
+                            <select class="form-control select2" id="kt_select2_3" asp-for="CorrespondenceLanguage" multiple="multiple">
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="OH">Ohio</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WV">West Virginia</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label text-right col-lg-3 col-sm-12" asp-for="DeliveryConditions"></label>
+                        <div class=" col-lg-6 col-md-12 col-sm-12">
+                            <select class="form-control select2" id="kt_select2_5" asp-for="DeliveryConditions">
+                                <option value="1">CFR - Cost And Freight</option>
+                                <option value="2">CIF - Cost, Insurance and Freight(to port of destination)</option>
+                                <option value="3">CIP - Carriage and Insurance Paid To</option>
+                                <option value="4">CPT - Carriage Paid To (a specified destination)</option>
+                                <option value="5">DAP - Delivered at Place</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        @*<div class="card-footer">
+                <div class="form-group row">
+                    <div class="col-lg-9 ml-lg-auto">
+                        <button type="reset" class="btn btn-primary mr-2">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>*@
+
+        <!--end::Form-->
+    </div>
+    <br />
+    <div class="card card-custom">
+        <div class="card-header">
+            <h3 class="card-title">
+                PUBLICATION SETTINGS
+            </h3>
+        </div>
+        <!--begin::Form-->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Tender area</h4>
+                </div>
+                <div class="col-md-12">
+                    <span class="form-text text-muted">You can publish this RFQ globally, for a continent, select individual countries or set a distance.</span>
+
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Large Size</label>
+                        <div class="radio-inline">
+                            <label class="radio radio-lg"> 
+                                <input type="radio" checked="checked" name="PublicationSettingsId" asp-for="PublicationSettingsId" value="1" />
+                                <span></span>
+                                Global
+                            </label>
+                            @*<label class="radio radio-lg">
+                                    <input type="radio" asp-for="PublicationSettingsId" value="2" />
+                                    <span></span>
+                                    Continents
+                                </label>*@
+                            <label class="radio radio-lg">
+                                <input type="radio" name="PublicationSettingsId" asp-for="PublicationSettingsId" value="2" />
+                                <span></span>
+                                Countries
+                            </label>
+                        </div>
+                        @*<span class="form-text text-muted">Some help text goes here</span>*@
+                    </div>
+                </div>
+                <div class="card card-custom gutter-b">
+                    @*<div class="card-header">
+                            <div class="card-title">
+                                <h3 class="card-label">
+                                    Basic Demo
+                                </h3>
+                            </div>
+                        </div>*@
+                    <div class="" id="publication_global">
+
+                    </div>
+                    @*<div class="" id="publication_continents" style="display:none;">
+
+                            <div class="row">
+                                <div class="col col-12">
+                                    <select class="form-control select2" id="chooseContinent">
+                                        <option>Please select a continens</option>
+                                        <option>Africa</option>
+                                        <option>Antarctica</option>
+                                        <option>Asia</option>
+                                        <option>Australia/Ocenia</option>
+                                        <option>Europa</option>
+                                        <option>North America</option>
+                                        <option>South America</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>*@
+                    <div class="" id="publication_countries" style="display:none;">
+                        <div class="">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <select class="form-control select2" style="width:400px;"  asp-items="Model.Countrys" name="SelectedCountries" id="chooseCountry1" multiple="multiple">
+                                </select>
+                            </div>
+
+                        </div>
+                        @*<div class="" id="publication_distance" style="display:none;">
+                                <div id="kt_leaflet_1" style="height:300px; width:500px;"></div>
+                            </div>*@
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="card-footer">
+                <div class="form-group row">
+                    <div class="col-lg-9"></div>
+                    <div class="col-lg-3 ml-lg-auto">
+                        <button type="submit" class="btn btn-primary mr-2">
+                            <span class="svg-icon svg-icon-white">
+                                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Navigation\Check.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <polygon points="0 0 24 0 24 24 0 24" />
+                                        <path d="M6.26193932,17.6476484 C5.90425297,18.0684559 5.27315905,18.1196257 4.85235158,17.7619393 C4.43154411,17.404253 4.38037434,16.773159 4.73806068,16.3523516 L13.2380607,6.35235158 C13.6013618,5.92493855 14.2451015,5.87991302 14.6643638,6.25259068 L19.1643638,10.2525907 C19.5771466,10.6195087 19.6143273,11.2515811 19.2474093,11.6643638 C18.8804913,12.0771466 18.2484189,12.1143273 17.8356362,11.7474093 L14.0997854,8.42665306 L6.26193932,17.6476484 Z" fill="#000000" fill-rule="nonzero" transform="translate(11.999995, 12.000002) rotate(-180.000000) translate(-11.999995, -12.000002) " />
+                                    </g>
+                                </svg><!--end::Svg Icon-->
+                            </span>
+                            SAVE
+                        </button>
+                        <button type="reset" class="btn btn-danger">
+                            <span class="svg-icon svg-icon-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <path d="M12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 Z M12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 Z M19.0710678,4.92893219 L19.0710678,4.92893219 C19.4615921,5.31945648 19.4615921,5.95262146 19.0710678,6.34314575 L6.34314575,19.0710678 C5.95262146,19.4615921 5.31945648,19.4615921 4.92893219,19.0710678 L4.92893219,19.0710678 C4.5384079,18.6805435 4.5384079,18.0473785 4.92893219,17.6568542 L17.6568542,4.92893219 C18.0473785,4.5384079 18.6805435,4.5384079 19.0710678,4.92893219 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                    </g>
+                                </svg>
+                            </span>
+                            CANCEL
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--end::Form-->
+        </div>
+    </div>
+    <script>
+
+        var KTBootstrapDatepicker = function () {
+
+            var arrows = {
+                leftArrow: '<i class="la la-angle-right"></i>',
+                rightArrow: '<i class="la la-angle-left"></i>'
+            };
+
+            // Private functions
+            var demos = function () {
+                // enable clear button
+                $('#kt_datepicker_3, #kt_datepicker_3_validate').datepicker({
+                    rtl: KTUtil.isRTL(),
+                    todayBtn: "linked",
+                    clearBtn: true,
+                    todayHighlight: true,
+                    templates: arrows
+                });
+
+
+            }
+            return {
+                // public functions
+                init: function () {
+                    demos();
+                }
+            };
+        }();
+
+        jQuery(document).ready(function () {
+            KTBootstrapDatepicker.init();
+        });
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //$('#chooseCountry1').select2({
+            //    placeholder: 'Please Select A Country Or Countries',
+            //});
+            $("input[name='PublicationSettingsId']").click(function (e) {
+                switch (e.target.value) {
+                    case "2":
+                        $("#publication_global").hide();
+                        $("#publication_continents").show();
+                        $("#publication_countries").hide();
+                        $("#publication_distance").hide();
+                        return;
+                    case "3":
+                        $("#publication_global").hide();
+                        $("#publication_continents").hide();
+                        $("#publication_countries").show();
+                        $("#publication_distance").hide();
+                        return;
+                    case "4":
+                        $("#publication_global").hide();
+                        $("#publication_continents").hide();
+                        $("#publication_countries").hide();
+                        $("#publication_distance").show();
+                        return;
+                    case "1":
+                        $("#publication_global").show();
+                        $("#publication_continents").hide();
+                        $("#publication_countries").hide();
+                        $("#publication_distance").hide();
+                        return;
+                    default:
+                        return 0;
+                }
+            });
+
+        });
+    </script>
+</form>

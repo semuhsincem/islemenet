@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Abstract\ICertificationService.cs" />
+    <Compile Remove="Abstract\ICompanySizeService.cs" />
+    <Compile Remove="Abstract\ICountryService.cs" />
+    <Compile Remove="Abstract\IIndustryService.cs" />
+    <Compile Remove="Abstract\IMaterialService.cs" />
+    <Compile Remove="Abstract\ITechnologyService.cs" />
+    <Compile Remove="Concrete\MaterialManager.cs" />
+    <Compile Remove="Concrete\TechnologyManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+  </ItemGroup>
+
+</Project>
