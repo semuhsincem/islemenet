@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DataAccessLayer.Concrete.EntityFramework.Middle
 {
-    public class EfRFQCountryDal : EfRepositoryBase<CNCContext, RFQCountry>, IRFQCountryDal
+    public class EfRFQCountryDal : EfRepositoryBase<CNCContext, RfqCountry>, IRFQCountryDal
     {
     }
 }

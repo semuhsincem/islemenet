@@ -3,6 +3,7 @@ using DataAccessLayer.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
@@ -28,6 +29,11 @@ namespace BusinessLayer.Concrete
         public List<RFQ> GetAdvertisements(Expression<Func<RFQ, bool>> expression = null)
         {
             return _advService.GetList(expression);
+        }
+
+        public List<RFQ> GetRfqWithIncludes(Expression<Func<RFQ, bool>> expression = null)
+        {
+            return _advService.GetListAllInclude(expression).ToList();
         }
     }
 }

@@ -1,230 +1,300 @@
-﻿<div class="filter-div">
-    <div class="filter-header">
-        <h6>Filter search results</h6>
-    </div>
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <button class="btn btn-block" type="button" data-toggle="collapse"
-                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <p>Filter search results </p>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-
+﻿@using ViewModels.RFQ
+@model SearchRfqViewModel
+    <form id="searchForm">
+        <div class="filter-div">
+            <div class="filter-header">
+                <h6>Detaylı Arama</h6>
             </div>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <button class="btn btn-block" type="button" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <p>Parça Tipleri</p>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
 
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                 data-parent="#accordionExample">
-                <div class="card-body">
-
-                    <div class="input-group">
-                        <select class="custom-select" id="inputGroupSelect02">
-                            <option selected>Newest RFQs</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
                     </div>
 
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseTwo" aria-expanded="false"
-                        aria-controls="collapseTwo">
-                    <p> Workpiece size (mm)</p>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                 data-parent="#accordionExample">
-                <div class="card-body">
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">CNC Metalworking</label>
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                        <label class="form-check-label" for="exampleCheck2">CNC Woodworking</label>
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck3">
-                        <label class="form-check-label" for="exampleCheck3">3D Printing</label>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                         data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="form-group form-check">
+                                <input type="checkbox" asp-for="IsMetal" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Metal</label>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" asp-for="IsWood" class="form-check-input" id="exampleCheck2">
+                                <label class="form-check-label" for="exampleCheck2">Tahta</label>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" asp-for="IsThreeD" class="form-check-input" id="exampleCheck3">
+                                <label class="form-check-label" for="exampleCheck3">3D Yazıcı</label>
+                            </div>
+
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseThree" aria-expanded="false"
-                        aria-controls="collapseThree">
-                    <p>Quantity</p>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                 data-parent="#accordionExample">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                    tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                    wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                    vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                    synth nesciunt you probably haven't heard of them accusamus labore
-                    sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingFour">
-                <button class="btn btn-block" type="button" data-toggle="collapse"
-                        data-target="#collapseFour" aria-expanded="true"
-                        aria-controls="collapseFour">
-                    <p>Technologies</p>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                            <p> Parça Boyutları (mm)</p>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                         data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Min. Uzunluk</small>
+                                        <input type="text" onkeyup="this.value=this.value.replace(/[^\d]/,'')" asp-for="MinLength" class="form-control create-rfq-form-control">
+                                    </div>
+                                </div>
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Max. Uzunluk</small>
+                                        <input type="text" asp-for="MaxLength" class="form-control create-rfq-form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Min. Yükseklik</small>
+                                        <input type="text" asp-for="MinHeight" class="form-control create-rfq-form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                                    </div>
 
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                 data-parent="#accordionExample">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                    tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingFive">
-                <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseFive" aria-expanded="false"
-                        aria-controls="collapseFive">
-                    <p>Material</p>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                 data-parent="#accordionExample">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                    tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                    wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                    vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                    synth nesciunt you probably haven't heard of them accusamus labore
-                    sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingSix">
-                <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseSix" aria-expanded="false"
-                        aria-controls="collapseSix">
-                    <p>Certification</p>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
-                 data-parent="#accordionExample">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                    tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                    wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                    vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                    synth nesciunt you probably haven't heard of them accusamus labore
-                    sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingSeven">
-                <button class="btn btn-block" type="button" data-toggle="collapse"
-                        data-target="#collapseSeven" aria-expanded="true"
-                        aria-controls="collapseOne">
-                    <p>Distance</p>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
+                                </div>
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Max. Yükseklik</small>
+                                        <input type="text" asp-for="MaxHeight" class="form-control create-rfq-form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Min. Genişlik</small>
+                                        <input type="text" asp-for="MinWidth" class="form-control create-rfq-form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
 
-            </div>
+                                    </div>
 
-            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven"
-                 data-parent="#accordionExample">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                    tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingEight">
-                <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseEight" aria-expanded="false"
-                        aria-controls="collapseEight">
-                    <p>RFQ origin country</p>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-            <div id="collapseEight" class="collapse" aria-labelledby="headingEight"
-                 data-parent="#accordionExample">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                    tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                    wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                    vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                    synth nesciunt you probably haven't heard of them accusamus labore
-                    sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingNine">
-                <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseNine" aria-expanded="false"
-                        aria-controls="collapseNine">
-                    <p>Status</p>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-            <div id="collapseNine" class="collapse" aria-labelledby="headingNine"
-                 data-parent="#accordionExample">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                    tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                    wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                    vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                    synth nesciunt you probably haven't heard of them accusamus labore
-                    sustainable VHS.
-                </div>
-            </div>
-        </div>
-    </div>
-    <button class="btn btn-search-filter btn-block">
-        <i class="fas fa-search"></i> &nbsp;SEARCH
-    </button>
+                                </div>
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Max. Genişlik</small>
+                                        <input type="text" asp-for="MaxWidth" class="form-control create-rfq-form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Min. Çap</small>
+                                        <input type="text" asp-for="MinDiameter" class="form-control create-rfq-form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
 
-    <button class="btn btn-reset-filter btn-block">
-        Reset All Filters
-    </button>
-</div>
+                                    </div>
+
+                                </div>
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Max. Çap</small>
+                                        <input type="text" asp-for="MaxDiameter" class="form-control create-rfq-form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
+                            <p>Miktar</p>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                         data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Min. Miktar</small>
+                                        <input type="text" asp-for="MinQuantity" class="form-control create-rfq-form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+
+                                    </div>
+                                </div>
+                                <div class="col col-md-6">
+                                    <div class="form-group create-rfq-form-group">
+                                        <small class="form-text"> Max. Miktar</small>
+                                        <input type="text" asp-for="MaxQuantity" class="form-control create-rfq-form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <button class="btn btn-block" type="button" data-toggle="collapse"
+                                data-target="#collapseFour" aria-expanded="true"
+                                aria-controls="collapseFour">
+                            <p>Teknolojiler</p>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                         data-parent="#accordionExample">
+                        <div class="card-body" style="height : 500px;">
+                            <select class="selectpicker form-control" asp-for="SelectedTechnologies" asp-items="Model.Technologies" data-live-search="true" multiple></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseFive" aria-expanded="false"
+                                aria-controls="collapseFive">
+                            <p>Materyaller</p>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                         data-parent="#accordionExample">
+                        <div class="card-body" style="height : 500px;">
+                            <select class="selectpicker form-control" style="z-index:-100" asp-for="SelectedMaterials" asp-items="Model.Materials" data-live-search="true" multiple></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingSix">
+                        <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseSix" aria-expanded="false"
+                                aria-controls="collapseSix">
+                            <p>Sertifikalar</p>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+                         data-parent="#accordionExample">
+                        <div class="card-body" style="height : 500px;">
+                            <select class="selectpicker form-control" style="z-index:-100" asp-for="SelectedCertifications" asp-items="Model.Certifications" data-live-search="true" multiple></select>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="card">
+                        <div class="card-header" id="headingSeven">
+                            <button class="btn btn-block" type="button" data-toggle="collapse"
+                                    data-target="#collapseSeven" aria-expanded="true"
+                                    aria-controls="collapseOne">
+                                <p>Distance</p>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+
+                        </div>
+
+                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                                tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+                            </div>
+                        </div>
+                    </div>*@
+                @*<div class="card">
+                        <div class="card-header" id="headingEight">
+                            <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseEight" aria-expanded="false"
+                                    aria-controls="collapseEight">
+                                <p>RFQ origin country</p>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                                tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+                                wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                                vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                                synth nesciunt you probably haven't heard of them accusamus labore
+                                sustainable VHS.
+                            </div>
+                        </div>
+                    </div>*@
+                @*<div class="card">
+                        <div class="card-header" id="headingNine">
+                            <button class="btn btn-block collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseNine" aria-expanded="false"
+                                    aria-controls="collapseNine">
+                                <p>Status</p>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div id="collapseNine" class="collapse" aria-labelledby="headingNine"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                                tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+                                wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                                vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                                synth nesciunt you probably haven't heard of them accusamus labore
+                                sustainable VHS.
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+            <button type="button" class="btn btn-search-filter btn-block" id="search">
+                <i class="fas fa-search"></i> &nbsp;ARA
+            </button>
+
+            <button type="button" class="btn btn-reset-filter btn-block" id="clearfilter">
+                Filterleri Temizle
+            </button>
+        </div>
+    </form>
+    <script>
+        $(function () {
+
+            $("#search").click(function () {
+                var _form = $("#searchForm")[0];
+                var model = new FormData(_form);
+                $.ajax({
+                    type: "POST",
+                    url: "/RFQ/GetRFQList",
+                    data: model,
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                        console.log(res);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+
+                });
+            });
+
+            $("#clearfilter").click(function () {
+                alert("filter");
+            });
+        });
+    </script>

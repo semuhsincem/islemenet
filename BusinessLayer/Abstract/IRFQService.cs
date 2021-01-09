@@ -12,5 +12,6 @@ namespace BusinessLayer.Abstract
         RFQ DeleteAdvertisement(RFQ advertisement);
 
         List<RFQ> GetAdvertisements(Expression<Func<RFQ, bool>> expression = null);
+        List<RFQ> GetRfqWithIncludes(Expression<Func<RFQ, bool>> expression = null);
     }
 }

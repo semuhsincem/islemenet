@@ -9,3 +9,15 @@ C:\Users\ASUS\source\repos\CNC\Helper\obj\Debug\netcoreapp3.1\Helper.dll
 C:\Users\ASUS\source\repos\CNC\Helper\obj\Debug\netcoreapp3.1\Helper.pdb
 C:\Users\ASUS\source\repos\CNC\Helper\obj\Debug\netcoreapp3.1\Helper.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\CNC\Helper\obj\Debug\netcoreapp3.1\Helper.genruntimeconfig.cache
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\bin\Debug\netcoreapp3.1\Helper.deps.json
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\bin\Debug\netcoreapp3.1\Helper.runtimeconfig.json
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\bin\Debug\netcoreapp3.1\Helper.runtimeconfig.dev.json
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\bin\Debug\netcoreapp3.1\Helper.dll
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\bin\Debug\netcoreapp3.1\Helper.pdb
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\obj\Debug\netcoreapp3.1\Helper.csprojAssemblyReference.cache
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\obj\Debug\netcoreapp3.1\Helper.AssemblyInfoInputs.cache
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\obj\Debug\netcoreapp3.1\Helper.AssemblyInfo.cs
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\obj\Debug\netcoreapp3.1\Helper.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\obj\Debug\netcoreapp3.1\Helper.dll
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\obj\Debug\netcoreapp3.1\Helper.pdb
+C:\Users\ASUS\Documents\GitHub\islemenet\Helper\obj\Debug\netcoreapp3.1\Helper.genruntimeconfig.cache

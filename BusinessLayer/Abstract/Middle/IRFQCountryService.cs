@@ -6,7 +6,7 @@ namespace BusinessLayer.Abstract.Middle
 {
     public interface IRFQCountryService
     {
-        List<RFQCountry> GetCountryListByRFQId(int rfqId);
+        List<RfqCountry> GetCountryListByRFQId(int rfqId);
 
         void AddCountriesToRFQ(List<int> countryIdList, int rfqId);
 

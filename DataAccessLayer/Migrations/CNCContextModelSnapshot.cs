@@ -52,7 +52,112 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Languages");
                 });
 
-            modelBuilder.Entity("Entities.Abstract.MiddleTables.RFQCountry", b =>
+            modelBuilder.Entity("Entities.Abstract.MiddleTables.RFQMiddles.RfqCertification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("AtCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CertificationId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("RFQId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RFQId");
+
+                    b.ToTable("RfqCertifications");
+                });
+
+            modelBuilder.Entity("Entities.Abstract.MiddleTables.RFQMiddles.RfqMaterial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("AtCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MaterialId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RFQId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RFQId");
+
+                    b.ToTable("RfqMaterials");
+                });
+
+            modelBuilder.Entity("Entities.Abstract.MiddleTables.RFQMiddles.RfqTechnology", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("AtCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("RFQId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TechnologyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RFQId");
+
+                    b.ToTable("RfqTechnologies");
+                });
+
+            modelBuilder.Entity("Entities.Abstract.MiddleTables.RfqCountry", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -476,11 +581,11 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("RFQDeadline")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("RfqFilesId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Width")
                         .HasColumnType("int");
@@ -556,6 +661,33 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Technologies");
+                });
+
+            modelBuilder.Entity("Entities.Abstract.MiddleTables.RFQMiddles.RfqCertification", b =>
+                {
+                    b.HasOne("Entities.Concrete.RFQ", "RFQ")
+                        .WithMany("RfqCertifications")
+                        .HasForeignKey("RFQId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Abstract.MiddleTables.RFQMiddles.RfqMaterial", b =>
+                {
+                    b.HasOne("Entities.Concrete.RFQ", "RFQ")
+                        .WithMany("RfqMaterials")
+                        .HasForeignKey("RFQId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Abstract.MiddleTables.RFQMiddles.RfqTechnology", b =>
+                {
+                    b.HasOne("Entities.Concrete.RFQ", "RFQ")
+                        .WithMany("RfqTechnologies")
+                        .HasForeignKey("RFQId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.Concrete.RfqFile", b =>

@@ -1,4 +1,5 @@
 ﻿using Core;
+using Entities.Abstract.MiddleTables.RFQMiddles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -25,8 +26,11 @@ namespace Entities.Concrete
         public int CorrespondenceLanguage { get; set; }
         public int PublicationSettingsType { get; set; }
 
-        public int RfqFilesId { get; set; }
+        public int UserId { get; set; }
         public virtual List<RfqFile> RfqFiles { get; set; }
+        public virtual List<RfqCertification>  RfqCertifications{ get; set; }
+        public virtual List<RfqMaterial> RfqMaterials { get; set; }
+        public virtual List<RfqTechnology> RfqTechnologies{ get; set; }
 
     }
 }

@@ -5,13 +5,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Middle;
+using BusinessLayer.Abstract.Middle.RfqMiddle;
 using BusinessLayer.Concrete;
 using BusinessLayer.Concrete.Middle;
+using BusinessLayer.Concrete.Middle.RfqMiddle;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Middle;
+using DataAccessLayer.Abstract.Middle.RfqMiddles;
 using DataAccessLayer.Concrete.EntityFramework;
 using DataAccessLayer.Concrete.EntityFramework.Context;
 using DataAccessLayer.Concrete.EntityFramework.Middle;
+using DataAccessLayer.Concrete.EntityFramework.Middle.RfqMiddle;
 using Helper.Constants;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -82,7 +86,16 @@ namespace MvcWebUI
 
             services.AddScoped<IRfqFileService, RfqFileManager>();
             services.AddScoped<IRfqFileDal, EfRfqFileDal>();
+            #region RFQ Middle Tables
+            services.AddScoped<IRfqCertificationService, RfqCertificationManager>();
+            services.AddScoped<IRfqCertificationDal, EfRfqCertificationDal>();
 
+            services.AddScoped<IRfqMaterialService, RfqMaterialManager>();
+            services.AddScoped<IRfqMaterialDal, EfRfqMaterialDal>();
+
+            services.AddScoped<IRfqTechnologyService, RfqTechnologyManager>();
+            services.AddScoped<IRfqTechnologyDal, EfRfqTechnologyDal>();
+            #endregion
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             #region validations

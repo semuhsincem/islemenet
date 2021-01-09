@@ -18,11 +18,11 @@ namespace BusinessLayer.Concrete.Middle
         {
             foreach (var item in countryIdList)
             {
-                _rfqService.Add(new RFQCountry() { RFQId = rfqId, CountryCode = item });
+                _rfqService.Add(new RfqCountry() { RFQId = rfqId, CountryCode = item });
             }
         }
 
-        public List<RFQCountry> GetCountryListByRFQId(int rfqId)
+        public List<RfqCountry> GetCountryListByRFQId(int rfqId)
         {
             return _rfqService.GetList(x => x.RFQId == rfqId);
         }

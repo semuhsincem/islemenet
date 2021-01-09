@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Middle;
+using BusinessLayer.Abstract.Middle.RfqMiddle;
+using Entities.Abstract.MiddleTables.RFQMiddles;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -23,23 +26,21 @@ namespace MvcWebUI.Controllers
         private UserManager<AppUser> _userManager { get; set; }
         private RoleManager<AppRole> _roleManager { get; set; }
         private SignInManager<AppUser> _signInManager { get; set; }
-        private readonly IHostingEnvironment _environment;
-        private IUserCertificateService _userCertificateService { get; set; }
-        private IUserIndustryService _userIndustryService { get; set; }
-        private IUserTechnologyService _userTechnologyService { get; set; }
-        private IUserMaterialService _userMaterialService { get; set; }
+        private readonly IWebHostEnvironment _environment;
+        private IRfqCertificationService _rfqCertificationService { get; set; }
+        private IRfqTechnologyService _rfqTechnologyService { get; set; }
+        private IRfqMaterialService _rfqMaterialService { get; set; }
         public IRFQCountryService _rFQCountryService { get; set; }
         public IRfqFileService _rfqFileService { get; set; }
         private readonly IConstantService _constantService;
         public RFQController(UserManager<AppUser> userManager,
             RoleManager<AppRole> roleManager,
             SignInManager<AppUser> signInManager,
-            IHostingEnvironment environment,
+            IWebHostEnvironment environment,
             IConstantService constantService,
-            IUserCertificateService userCertificateService,
-            IUserIndustryService userIndustryService,
-            IUserTechnologyService userTechnologyService,
-            IUserMaterialService userMaterialService,
+            IRfqCertificationService rfqCertificationService,
+            IRfqTechnologyService rfqTechnologyService,
+            IRfqMaterialService rfqMaterialService,
             IRFQService rfqService,
             IRFQCountryService rFQCountryService,
             IRfqFileService rfqFileService
@@ -50,10 +51,9 @@ namespace MvcWebUI.Controllers
             _roleManager = roleManager;
             _environment = environment;
             _constantService = constantService;
-            _userCertificateService = userCertificateService;
-            _userIndustryService = userIndustryService;
-            _userTechnologyService = userTechnologyService;
-            _userMaterialService = userMaterialService;
+            _rfqCertificationService = rfqCertificationService;
+            _rfqTechnologyService = rfqTechnologyService;
+            _rfqMaterialService = rfqMaterialService;
             _rfqService = rfqService;
             _rFQCountryService = rFQCountryService;
             _rfqFileService = rfqFileService;
@@ -71,6 +71,7 @@ namespace MvcWebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user = await _userManager.GetUserAsync(User);
                 var rfq = _rfqService.AddAdvertisment(new RFQ()
                 {
                     Title = model.Title,
@@ -86,7 +87,8 @@ namespace MvcWebUI.Controllers
                     Need = model.Need,
                     PublicationSettingsType = model.PublicationSettingsId,
                     Quantity = model.Quantity.HasValue ? model.Quantity.Value : 1,
-                    RFQDeadline = model.RFQDeadline
+                    RFQDeadline = model.RFQDeadline,
+                    UserId = user.Id
                 });
                 #region Dosyaları Ekle
                 List<string> filePaths = new List<string>();
@@ -97,12 +99,19 @@ namespace MvcWebUI.Controllers
                 }
                 _rfqFileService.AddFileToRFQ(filePaths, rfq.Id, Enums.RFQHelpers.ECreateRfqFileType.Normal);
                 #endregion Dosya Ekle
-                #region İlanın Teknolojilerini Ekle
-                
+                #region Teknolojilerini Ekle
+                foreach (var item in model.SelectedTechnologies)
+                    _rfqTechnologyService.Add(new RfqTechnology() { RFQId = rfq.Id, TechnologyId = Convert.ToInt32(item) });
 
                 #endregion
-
-
+                #region Materyalleri Ekle
+                foreach (var item in model.SelectedMaterials)
+                    _rfqMaterialService.Add(new RfqMaterial() { RFQId = rfq.Id, MaterialId = Convert.ToInt32(item) });
+                #endregion
+                #region Sertifika Ekle
+                foreach (var item in model.SelectedCertifications)
+                    _rfqCertificationService.Add(new RfqCertification() { RFQId = rfq.Id, CertificationId = Convert.ToInt32(item) });
+                #endregion
                 if (model.PublicationSettingsId == 2)
                 {
                     List<int> selectedList = new List<int>();
@@ -113,31 +122,16 @@ namespace MvcWebUI.Controllers
 
                     _rFQCountryService.AddCountriesToRFQ(selectedList, rfq.Id);
                 }
-
-
             }
             return Json(new { success = true });
         }
 
         [HttpPost]
-        public IActionResult GetRFQList(DataTableAjaxPostModel model)
+        public IActionResult GetRFQList([FromForm]SearchRfqViewModel model)
         {
 
-            //Db Query -> Start
-            var advertisements = _rfqService.GetAdvertisements();
-            //Db Queryy -> End
-
-            int recordsTotal = advertisements.Count();
-
-            int recordsFiltered = advertisements.Count();
-            var data = advertisements.Skip(model.start).Take(model.length).ToList();
-            return Json(new
-            {
-                draw = model.draw,
-                recordsFiltered = recordsFiltered,
-                recordsTotal = recordsTotal,
-                data = data
-            });
+            var res = _rfqService.GetRfqWithIncludes();
+            return Json("");
         }
 
         public CreateRFQViewModel FillModelSelectListItemsForCreateRFQViewModel(CreateRFQViewModel model)
@@ -173,17 +167,18 @@ namespace MvcWebUI.Controllers
         {
             try
             {
+                string folderRoot = Path.Combine(_environment.ContentRootPath, "Uploads");
+                string filePath = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                filePath = Path.Combine(folderRoot, filePath);
                 if (file.Length > 0)
                 {
-                    string folderRoot = Path.Combine(_environment.ContentRootPath, "Uploads");
-                    string filePath = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                    filePath = Path.Combine(folderRoot, filePath);
+
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         await file.CopyToAsync(stream);
                     }
                 }
-                return file.FileName;
+                return filePath;
             }
             catch (Exception)
             {
