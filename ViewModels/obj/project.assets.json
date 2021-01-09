@@ -6746,11 +6746,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\ViewModels.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj",
       "projectName": "ViewModels",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\ViewModels.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -6772,8 +6772,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj"
+            "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj"
             }
           }
         }

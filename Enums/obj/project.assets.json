@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\Enums\\Enums.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj",
       "projectName": "Enums",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Enums\\Enums.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Enums\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

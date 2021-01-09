@@ -817,11 +817,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

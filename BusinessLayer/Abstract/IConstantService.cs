@@ -15,5 +15,6 @@ namespace BusinessLayer.Abstract
         List<Technology> GetTechnologies(Expression<Func<Technology, bool>> expression = null);
         List<Industry> GetIndustries(Expression<Func<Industry, bool>> expression = null);
         List<Iller> GetIller(Expression<Func<Iller, bool>> expression = null);
+        List<RfqFile> GetRfqFiles(Expression<Func<RfqFile, bool>> expression = null);
     }
 }

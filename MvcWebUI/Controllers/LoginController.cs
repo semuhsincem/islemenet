@@ -194,7 +194,7 @@ namespace MvcWebUI.Controllers
                 }
                 TempData[ConstantHelper.ErrorMessage] = ErrorMessage;
             }
-            return RedirectToAction("Login");
+            return View(model);
         }
 
         public async Task<IActionResult> ConfirmEmail(string userid, string token)

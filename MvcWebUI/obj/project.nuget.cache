@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FKc14QmvkPp5sf5kXq3Y6lnDRm4/88el2JhRIXXeU6XW/mCsc7CD6+I8dS5qWghFTDGqO3sok1YLnSwPmVdsNg==",
+  "dgSpecHash": "XdIVKd0/TkOpJYiPtS9rw6a5eezHsUIlyp78eDdc/E4sYC5qK8vNYHn1t7safAq0jk8BF2aUrMhC3E44h6VCAw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\CNC\\MvcWebUI\\MvcWebUI.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\MvcWebUI\\MvcWebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

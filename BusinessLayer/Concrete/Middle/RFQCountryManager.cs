@@ -29,15 +29,7 @@ namespace BusinessLayer.Concrete.Middle
 
         public void UpdateCountriesToRFQ(List<int> countryIdList, int rfqId)
         {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            throw new Exception("UpdateCountriesToRFQ");
         }
     }
 }

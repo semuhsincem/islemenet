@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj": {}
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj",
         "projectName": "Helper",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

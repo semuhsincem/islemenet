@@ -9,6 +9,7 @@
       "Entities/1.0.0": {
         "dependencies": {
           "Core": "1.0.0",
+          "Enums": "1.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.7"
         },
         "runtime": {
@@ -232,6 +233,11 @@
         "runtime": {
           "Core.dll": {}
         }
+      },
+      "Enums/1.0.0": {
+        "runtime": {
+          "Enums.dll": {}
+        }
       }
     }
   },
@@ -403,6 +409,11 @@
       "hashPath": "system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
     },
     "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Enums/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

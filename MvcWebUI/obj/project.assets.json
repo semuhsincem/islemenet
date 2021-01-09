@@ -3203,13 +3203,24 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Core": "1.0.0"
+          "Core": "1.0.0",
+          "Enums": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Entities.dll": {}
         },
         "runtime": {
           "bin/placeholder/Entities.dll": {}
+        }
+      },
+      "Enums/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Enums.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Enums.dll": {}
         }
       },
       "Helper/1.0.0": {
@@ -9795,6 +9806,11 @@
       "path": "../Entities/Entities.csproj",
       "msbuildProject": "../Entities/Entities.csproj"
     },
+    "Enums/1.0.0": {
+      "type": "project",
+      "path": "../Enums/Enums.csproj",
+      "msbuildProject": "../Enums/Enums.csproj"
+    },
     "Helper/1.0.0": {
       "type": "project",
       "path": "../Helper/Helper.csproj",
@@ -9809,6 +9825,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "BusinessLayer >= 1.0.0",
+      "Enums >= 1.0.0",
       "Helper >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.7",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 3.1.7",
@@ -9826,11 +9843,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\MvcWebUI\\MvcWebUI.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\MvcWebUI\\MvcWebUI.csproj",
       "projectName": "MvcWebUI",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\MvcWebUI\\MvcWebUI.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\MvcWebUI\\MvcWebUI.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\MvcWebUI\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\MvcWebUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -9852,14 +9869,17 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ASUS\\source\\repos\\CNC\\BusinessLayer\\BusinessLayer.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\BusinessLayer\\BusinessLayer.csproj"
+            "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\BusinessLayer\\BusinessLayer.csproj"
             },
-            "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj"
+            "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj"
             },
-            "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\ViewModels.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\ViewModels.csproj"
+            "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj"
+            },
+            "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj"
             }
           }
         }

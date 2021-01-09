@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NTy4+v6StcxOH8kd8zROfgmsw3girtsZUfL9uPW0bUCg5ilFWrbYODPJW0OsMdnvee12rEODXMLIIp2Bh/NDzA==",
+  "dgSpecHash": "LC0hdnpXfOFbLFT95JbLMkVyUxd4RsJmdLuLjqEBC3dTd3OOGo3SbD9RPl+JafLgvr22PITknnZbzCPw3VKJzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\CNC\\BusinessLayer\\BusinessLayer.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

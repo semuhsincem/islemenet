@@ -1513,13 +1513,24 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Core": "1.0.0"
+          "Core": "1.0.0",
+          "Enums": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Entities.dll": {}
         },
         "runtime": {
           "bin/placeholder/Entities.dll": {}
+        }
+      },
+      "Enums/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Enums.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Enums.dll": {}
         }
       }
     }
@@ -5747,6 +5758,11 @@
       "type": "project",
       "path": "../Entities/Entities.csproj",
       "msbuildProject": "../Entities/Entities.csproj"
+    },
+    "Enums/1.0.0": {
+      "type": "project",
+      "path": "../Enums/Enums.csproj",
+      "msbuildProject": "../Enums/Enums.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5765,11 +5781,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\DataAccessLayer.csproj",
       "projectName": "DataAccessLayer",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\DataAccessLayer.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -5791,11 +5807,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj"
+            "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj"
             },
-            "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj"
+            "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj"
             }
           }
         }

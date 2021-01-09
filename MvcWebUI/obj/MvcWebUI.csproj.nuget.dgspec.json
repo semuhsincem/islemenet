@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\MvcWebUI\\MvcWebUI.csproj": {}
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\MvcWebUI\\MvcWebUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\BusinessLayer\\BusinessLayer.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\BusinessLayer\\BusinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\BusinessLayer\\BusinessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\BusinessLayer\\BusinessLayer.csproj",
         "projectName": "BusinessLayer",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\BusinessLayer\\BusinessLayer.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\BusinessLayer\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\BusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -33,11 +33,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\DataAccessLayer.csproj"
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\DataAccessLayer.csproj"
               },
-              "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj"
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj"
               }
             }
           }
@@ -78,14 +78,14 @@
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -149,14 +149,14 @@
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\DataAccessLayer.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\DataAccessLayer.csproj",
         "projectName": "DataAccessLayer",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -178,11 +178,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj"
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj"
               },
-              "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj"
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj"
               }
             }
           }
@@ -227,14 +227,14 @@
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -256,8 +256,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj"
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj"
+              },
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj"
               }
             }
           }
@@ -298,14 +301,73 @@
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj",
-        "projectName": "Helper",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj",
+        "projectName": "Enums",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj",
+        "projectName": "Helper",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -365,14 +427,14 @@
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\MvcWebUI\\MvcWebUI.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\MvcWebUI\\MvcWebUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\MvcWebUI\\MvcWebUI.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\MvcWebUI\\MvcWebUI.csproj",
         "projectName": "MvcWebUI",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\MvcWebUI\\MvcWebUI.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\MvcWebUI\\MvcWebUI.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\MvcWebUI\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\MvcWebUI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -394,14 +456,17 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\ASUS\\source\\repos\\CNC\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\BusinessLayer\\BusinessLayer.csproj"
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\BusinessLayer\\BusinessLayer.csproj"
               },
-              "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj"
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj"
               },
-              "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\ViewModels.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\ViewModels.csproj"
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj"
+              },
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj"
               }
             }
           }
@@ -461,14 +526,14 @@
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\ViewModels.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\ViewModels.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj",
         "projectName": "ViewModels",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\ViewModels.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\ViewModels\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -490,8 +555,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj"
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj"
               }
             }
           }

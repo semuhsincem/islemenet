@@ -65,7 +65,9 @@ namespace ViewModels.Login
         //public bool IsMetal { get; set; }
         //public bool Is3D { get; set; }
 
-        public string Sector { get; set; }
+        public bool SectorMetal { get; set; }
+        public bool SectorWood { get; set; }
+        public bool SectorThreeD { get; set; }
         public List<SelectListItem> Materials { get; set; }
         public List<SelectListItem> CompanySizes{ get; set; }
         public List<SelectListItem> Countrys { get; set; }

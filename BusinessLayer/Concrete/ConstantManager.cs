@@ -10,13 +10,14 @@ namespace BusinessLayer.Concrete
 {
     public class ConstantManager : IConstantService
     {
-        private ICertificationDal _certificationService;
-        private ICompanySizeDal _companySizeService;
-        private ICountryDal _countryService;
-        private IIndustryDal _industryService;
-        private IMaterialDal _materialService;
-        private ITechnologyDal _technologyService;
-        private IIllerDal _illerService;
+        private readonly ICertificationDal _certificationService;
+        private readonly ICompanySizeDal _companySizeService;
+        private readonly ICountryDal _countryService;
+        private readonly IIndustryDal _industryService;
+        private readonly IMaterialDal _materialService;
+        private readonly ITechnologyDal _technologyService;
+        private readonly IIllerDal _illerService;
+        private readonly IRfqFileDal _rfqFileDal;
         public ConstantManager(
         ICertificationDal certificationService,
         ICompanySizeDal companySizeService,
@@ -24,7 +25,8 @@ namespace BusinessLayer.Concrete
         IIndustryDal industryService,
         IMaterialDal materialService,
         ITechnologyDal technologyService,
-        IIllerDal illerService)
+        IIllerDal illerService,
+        IRfqFileDal rfqFileDal)
         {
             _certificationService = certificationService;
             _companySizeService = companySizeService;
@@ -33,7 +35,7 @@ namespace BusinessLayer.Concrete
             _industryService = industryService;
             _technologyService = technologyService;
             _illerService = illerService;
-
+            _rfqFileDal = rfqFileDal;
         }
         public List<Certification> GetCertifications(Expression<Func<Certification, bool>> expression = null)
         {
@@ -68,6 +70,10 @@ namespace BusinessLayer.Concrete
         public List<Technology> GetTechnologies(Expression<Func<Technology, bool>> expression = null)
         {
             return _technologyService.GetList(expression);
+        }
+        public List<RfqFile> GetRfqFiles(Expression<Func<RfqFile, bool>> expression = null)
+        {
+            return _rfqFileDal.GetList(expression);
         }
     }
 }

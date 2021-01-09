@@ -1,3 +1,467 @@
-﻿ 
+﻿@using ViewModels.RFQ
 
-<h2>RFQ OLUŞTURMA SAYFASI</h2>
+@model CreateRFQViewModel
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<form asp-controller="RFQ" asp-action="Create" id="RFQEkleForm" asp-antiforgery="true"
+      enctype="multipart/form-data"
+      data-ajax-begin="formOnBegin"
+      data-ajax-failure="formFailure"
+      data-ajax-success="formSuccess"
+      data-ajax-complete="formComplete"
+      data-ajax-confirm="confirm"
+      data-ajax="true" data-ajax-method="POST">
+    @Html.AntiForgeryToken();
+    <div class="container py-5">
+        <div class="page-header">
+            <h2>YENİ RFQ</h2>
+            <p>RFQ Oluşturma</p>
+            <small>Formu olabildiğince kesin bir şekilde doldurun. * Yıldızla işaretlenmiş alanlar zorunludur.</small>
+        </div>
+
+        <div class="order-summary">
+            <h5>Sipariş Özeti</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group create-rfq-form-group">
+                        <small class="form-text">Başlık*</small>
+                        <input asp-for="Title" class="form-control create-rfq-form-control">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <div class="form-group create-rfq-form-group">
+                        <small class="form-text">Miktar*</small>
+                        <input asp-for="Quantity" class="form-control create-rfq-form-control">
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group create-rfq-form-group">
+                        <small class="form-text">İhtiyaç Tipi*</small>
+                        <select asp-for="Need" class="selectpicker form-control" asp-items="Html.GetEnumSelectList<ERFQNeeds>()" data-live-search="true"></select>
+                        <span asp-validation-for="Need" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group create-rfq-form-group">
+                        <small class="form-text">Parça Sayısı*</small>
+                        <input asp-for="Batches" class="form-control create-rfq-form-control">
+                        <span asp-validation-for="Batches" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group create-rfq-form-group">
+                        <small class="form-text">RFQ Bitiş Tarihi*</small>
+                        <input type="date" asp-for="RFQDeadline" class="form-control create-rfq-form-control">
+                        <span asp-validation-for="RFQDeadline" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group create-rfq-form-group">
+                        <small class="form-text">Teslim Tarihi*</small>
+                        <input type="date" asp-for="DeliveryDate" class="form-control create-rfq-form-control">
+                        <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="bottom-info">
+                        <h6>NDA (Gizlilik sözleşmesi)</h6>
+                        <i class="fas fa-info-circle"></i>
+                        <label class="switch">
+                            <input asp-for="IsSecretCheck">
+                            <span class="slider round"></span>
+                            <span asp-validation-for="IsSecretCheck" class="text-danger"></span>
+                        </label>
+                    </div>
+                    <p>
+                        Bir Gizlilik Sözleşmesi yüklerseniz, ilgilenen tarafların dosyalarınızı görüntüleyebilmeleri için önce imzalamaları gerekir.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="workspace-data mt-5">
+            <h5>Çalışma Alanı Verileri</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Dosyalar</p>
+                    <p>Dosya Yükle* &nbsp; <span><i class="fas fa-info-circle"></i></span></p>
+                    <small>
+                        Üreticilerin kesin tahminler yapmasına yardımcı olmak için lütfen çizimler ve belgeler ekleyin.
+                        Ayrıca, hizmet şartlarınızı ve bu RFQ ile ilgili diğer dosyaları da ekleyebilirsiniz.
+                    </small>
+                </div>
+                <div class="col-md-6">
+                    <p>Dosya Yükle*</p>
+                    <p>
+                        AUTODESK tarafından desteklenen 3B görselleştirme &nbsp; <span>
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                    </p>
+                    <small>
+                        Ek olarak, AUTODESK Forge Viewer'daki 2D veya 3D çizimlerinizi 2D veya 3D görüntüleme formatına dönüştürme seçeneğini kullanabilirsiniz.
+                    </small>
+                </div>
+                <div class="col-md-6">
+                    <div class="file-upload">
+                        <div id="dropzone">
+                            @*<form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
+                                    <div class="dz-message needsclick">
+                                        <button type="button" class="dz-button btn-add-file">
+                                            <div class="btn-border">
+                                                <div class="btn-icon">
+                                                    <i class="fas fa-plus fa-2x"></i>
+                                                </div>
+                                            </div>
+                                            Add Files
+                                        </button>
+                                    </div>
+                                </form>*@
+                            <input asp-for="Files" multiple />
+                            <span asp-validation-for="Files" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="file-upload">
+                        <div id="dropzone2">
+                            @*<form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
+                                    <div class="dz-message needsclick">
+                                        <button type="button" class="dz-button btn-add-file">
+                                            <div class="btn-border">
+                                                <div class="btn-icon">
+                                                    <i class="fas fa-plus fa-2x"></i>
+                                                </div>
+                                            </div>
+                                            Add Files
+                                        </button>
+                                    </div>
+                                </form>*@
+                            <input asp-for="ThreeDFiles" multiple />
+                            <span asp-validation-for="ThreeDFiles" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dimensions">
+                <h6>Boyutlar* &nbsp; <i class="fas fa-info-circle"></i></h6>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group create-rfq-form-group">
+                            <small class="form-text">Uzunluk(mm)*</small>
+                            <input asp-for="Length" class="form-control create-rfq-form-control">
+                            <span asp-validation-for="Length" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group create-rfq-form-group">
+                            <small class="form-text">Genişlik(mm)</small>
+                            <input asp-for="Width" class="form-control create-rfq-form-control">
+                            <span asp-validation-for="Width" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group create-rfq-form-group">
+                            <small class="form-text">Yükseklik(mm)</small>
+                            <input asp-for="Height" class="form-control create-rfq-form-control">
+                            <span asp-validation-for="Height" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group create-rfq-form-group">
+                            <small class="form-text">Çap(mm)</small>
+                            <input asp-for="Diameter" class="form-control create-rfq-form-control">
+                            <span asp-validation-for="Diameter" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group create-rfq-form-group">
+                            <small class="form-text">Min. Hata payı</small>
+                            <input asp-for="MinTol" class="form-control create-rfq-form-control">
+                            <span asp-validation-for="MinTol" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+
+                    <div class="dimensions-bottom">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <small class="form-text">Materyaller*</small>
+                                    <select class="selectpicker form-control" asp-for="SelectedMaterials" data-live-search="true" multiple>
+                                        @foreach (var item in Model.Materials)
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="SelectedMaterials" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <small class="form-text">Teknolojiler*</small>
+                                    <select class="selectpicker form-control" asp-for="SelectedTechnologies" data-live-search="true" multiple>
+                                        @foreach (var item in Model.Technologies)
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="SelectedTechnologies" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <small class="form-text">Gerekli Sertifikalar*</small>
+                                    <select class="selectpicker form-control" asp-for="SelectedCertifications" data-live-search="true" multiple>
+                                        @foreach (var item in Model.Certifications)
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="SelectedCertifications" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="additional-information mt-5">
+            <h5>Ek Bilgiler</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <small class="form-text">Temel Bilgiler*</small>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="9"
+                                  placeholder="Teklif talebinizin açıklaması ve ek bilgiler"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <small class="form-text">Teklif para birimi*</small>
+                        <select asp-for="OfferCurrency" asp-items="Html.GetEnumSelectList<EMoneyTypes>()" class="selectpicker form-control" data-live-search="true">
+                        </select>
+                        <span asp-validation-for="OfferCurrency" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <small class="form-text">Yazışma dili</small>
+                        <select class="selectpicker form-control" asp-for="CorrespondenceLanguage" asp-items="Html.GetEnumSelectList<ELanguageTypes>()" data-live-search="true">
+                        </select>
+                        <span asp-validation-for="CorrespondenceLanguage" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <small class="form-text">Teslim şartları</small>
+                        <select class="selectpicker form-control" asp-for="DeliveryConditions" data-live-search="true">
+                            <option value="1">CFR - Maliyet ve Nakliye</option>
+                            <option value="2">CIF - Maliyet, Sigorta ve Navlun (varış limanına)</option>
+                            <option value="3">CIP - Taşıma ve Sigorta Ödenmiş</option>
+                            <option value="4">CPT - Taşıma Ücreti Ödenmiş (belirli bir varış noktası)</option>
+                            <option value="5">DAP - Yerinde Teslim</option>
+                        </select>
+                        <span asp-validation-for="DeliveryConditions" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-settings my-5">
+            <h5>Yayın Ayarları</h5>
+            <p>İhale alanı</p>
+            <small>
+                Bu RFQ'yu bir kıta için küresel olarak yayınlayabilir, ülkeleri tek tek seçebilir veya bir mesafe belirleyebilirsiniz.
+            </small>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <small class="form-text">Ülke*</small>
+                        <select class="selectpicker form-control" asp-for="SelectedCountries" data-live-search="true">
+                            @foreach (var item in Model.Countrys)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        </select>
+                        <span asp-validation-for="SelectedCountries" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <small class="form-text">İl*</small>
+                        <select class="selectpicker form-control" asp-for="SelectedIl" data-live-search="true">
+                            @foreach (var item in Model.Iller)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        </select>
+                        <span asp-validation-for="SelectedIl" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <div class="section-header">
+                        <h6>
+                            Ayrıcalıklı ortak
+                        </h6>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <p>
+                        Burada, yalnızca belirli şirketlerin hangi RFQ'ları alacağını ayarlayabilirsiniz.
+                        Teklif talebiniz yayınlanmadan önce özel ortak listesi oluşturulmalıdır!
+                    </p>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="section-header">
+                        <h6>
+                            Kara liste
+                        </h6>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <p>
+                        Burada, yalnızca belirli şirketlerin hangi RFQ'ları alacağını ayarlayabilirsiniz.
+                        Teklif talebiniz yayınlanmadan önce özel ortak listesi oluşturulmalıdır!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-save-rfq">KAYDET</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        $.validator.unobtrusive.parse("#RFQEkleForm");
+
+        var $form = $("#RFQEkleForm");
+        if (!$form.valid())
+            return;
+
+        var a = 1;
+        console.log(a);
+        //$("#RFQEkleForm").submit(function (e) {
+        //    e.preventDefault();
+        //    alert("Submit");
+
+        //});
+    });
+
+    function confirm(response) {
+        swal({
+            title: "Emin Misiniz?",
+            text: "Bu işlemi geri alamayacaksınız!",
+            icon: "info",
+            buttons: {
+                cancel: {
+                    text: "İptal",
+                    value: null,
+                    visible: true,
+                    className: "",
+                    closeModal: true,
+                },
+                confirm: {
+                    text: "Oluştur",
+                    value: true,
+                    visible: true,
+                    className: "",
+                    closeModal: true
+                }
+            },
+        })
+            .then((isConfirm) => {
+                debugger;
+                var _form = $("#RFQEkleForm")[0];
+                var model = new FormData(_form);
+                var files1 = document.getElementById("Files").files;
+                var files2 = document.getElementById("ThreeDFiles").files;
+                //var token = $('input[name="__RequestVerificationToken"]').val();
+
+                for (var i = 0; i < files1.length; i++) {
+                    model.append("Files", files1[i]);
+                }
+                for (var j = 0; j < files2.length; j++) {
+                    model.append("ThreeDFiles", files2[j]);
+                }
+                console.log(model);
+                if (isConfirm) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: "RFQ/Create",
+                        enctype: "multipart/form-data",
+                        data: model,
+                        processData: false,
+                        contentType: false,
+                        success: function (res) {
+                            swal("İlan Oluşturuldu.Artık ilanınızı listede görebilirsiniz.", {
+                                icon: "success",
+                            });
+                        }, error: function (err) {
+                            swal("RFQ oluşturma işlemi sırasında bir hata meydana geldi.", { icon: "warning" });
+                        }
+                    });
+
+
+                } else {
+                    swal("İşleminiz İptal Edildi.", { icon: "warning" });
+                }
+            });
+    }
+
+    function formSuccess(response) {
+        if (response.success) {
+            alert("success");
+            //ShowMessage('', response.result);
+            //ContainerKapat();
+            //window.TasinmazListeRefresh();
+        } else {
+            ShowMessage(response.result, '');
+        }
+    }
+    function formFailure(response) {
+        alert("formFailure");
+        ShowUnknownErrorMessage(response);
+    }
+
+    function formComplete(response) {
+        alert("formComplete");
+    }
+
+    function formOnBegin() {
+        alert("formOnBegin");
+    }
+
+</script>

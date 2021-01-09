@@ -27,9 +27,9 @@ body {
     display: flex;
 }
 
-    .contact-address span {
-        color: var(--light-blue);
-    }
+.contact-address span {
+    color: var(--light-blue);
+}
 
 .phone-number {
     margin-right: 1rem;
@@ -43,26 +43,26 @@ body {
     flex-wrap: wrap;
 }
 
-    .topbar-buttons ul {
-        display: flex;
-        border-right: 1px solid var(--light-blue);
-        margin-bottom: 0;
-    }
+.topbar-buttons ul {
+    display: flex;
+    border-right: 1px solid var(--light-blue);
+    margin-bottom: 0;
+}
 
-    .topbar-buttons li {
-        list-style-type: none;
-        margin-right: 1rem;
-    }
+.topbar-buttons li {
+    list-style-type: none;
+    margin-right: 1rem;
+}
 
-        .topbar-buttons li a {
-            color: var(--light-blue);
-            text-decoration: none;
-        }
+.topbar-buttons li a {
+    color: var(--light-blue);
+    text-decoration: none;
+}
 
-    .topbar-buttons .language {
-        display: flex;
-        align-items: center;
-    }
+.topbar-buttons .language {
+    display: flex;
+    align-items: center;
+}
 
 .btn-change-language,
 .btn-change-language:hover {
@@ -76,10 +76,10 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .active>.nav-link,
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
-.navbar-light .navbar-nav .show > .nav-link {
+.navbar-light .navbar-nav .show>.nav-link {
     color: var(--orange);
 }
 
@@ -92,14 +92,13 @@ body {
 
 /* Change the white to any color ;) */
 input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
-
 @media screen and (max-width: 768px) {
-    .topbar-buttons ul {
+    .topbar-buttons ul{
         padding-left: 0;
         margin-left: 0;
         margin-top: .5rem;
@@ -108,4 +107,5 @@ input:-webkit-autofill:active {
     .topbar-buttons .language {
         margin-top: .5rem;
     }
+
 }

@@ -9,15 +9,15 @@
 <ul class="nav nav-pills tab-menu-buttons" id="pills-tab" role="tablist">
     <li class="nav-item tab-menu-button" role="presentation">
         <a class="nav-link active" id="pills-search-tab" data-toggle="pill" href="#pills-search" role="tab"
-           aria-controls="pills-search" aria-selected="true"> <i class="fas fa-search"></i> &nbsp;SEARCH RFQS</a>
+           aria-controls="pills-search" aria-selected="true"> <i class="fas fa-search"></i> &nbsp;RFQ ARAMA</a>
     </li>
     <li class="nav-item tab-menu-button" role="presentation">
         <a class="nav-link" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab"
-           aria-controls="pills-create" aria-selected="false"><i class="far fa-file"></i> &nbsp; CREATE RFQS</a>
+           aria-controls="pills-create" aria-selected="false"><i class="far fa-file"></i> &nbsp; YENİ RFQ OLUŞTUR</a>
     </li>
     <li class="nav-item tab-menu-button" role="presentation">
         <a class="nav-link" id="pills-my-tab" data-toggle="pill" href="#pills-my" role="tab"
-           aria-controls="pills-my" aria-selected="false"><i class="far fa-file-alt"></i> &nbsp; MY RFQS </a>
+           aria-controls="pills-my" aria-selected="false"><i class="far fa-file-alt"></i> &nbsp; RFQLARIM </a>
     </li>
     <li class="nav-item tab-menu-button" role="presentation">
         <a class="nav-link" id="pills-sent-tab" data-toggle="pill" href="#pills-sent" role="tab"
@@ -26,20 +26,20 @@
     <li class="nav-item tab-menu-button" role="presentation">
         <a class="nav-link" id="pills-search-comp-tab" data-toggle="pill" href="#pills-search-comp" role="tab"
            aria-controls="pills-search-comp" aria-selected="false">
-            <i class="fas fa-search"></i> &nbsp; SEARCH
-            COMPANIES
+            <i class="fas fa-search"></i> &nbsp; ŞİRKET
+            ARAMA
         </a>
     </li>
     <li class="nav-item tab-menu-button" role="presentation">
         <a class="nav-link" id="pills-other-tab" data-toggle="pill" href="#pills-other" role="tab"
            aria-controls="pills-other" aria-selected="false">
-            <i class="fas fa-ellipsis-h"></i> &nbsp; OTHER
-            FUNCTIONS
+            <i class="fas fa-ellipsis-h"></i> &nbsp; DİĞER
+            ÖZELLİKLER
         </a>
     </li>
     <li class="nav-item tab-menu-button" role="presentation">
         <a class="nav-link" id="pills-help-tab" data-toggle="pill" href="#pills-help" role="tab"
-           aria-controls="pills-help" aria-selected="false"><i class="far fa-question-circle"></i> &nbsp; HELP</a>
+           aria-controls="pills-help" aria-selected="false"><i class="far fa-question-circle"></i> &nbsp; YARDIM</a>
     </li>
 </ul>
 
@@ -47,9 +47,9 @@
     <div class="tab-pane fade show active" id="pills-search" role="tabpanel" aria-labelledby="pills-search-tab">
         <div class="tab-header">
             <h4>
-                Search RFQs
+                RFQLAR İÇİNDE ARAMA
             </h4>
-            Start a new search using the smart filters and set up an email notification
+            Akıllı filtreleri kullanarak yeni bir arama başlatın ve bir e-posta bildirimi ayarlayın
         </div>
         <div class="container-fluid">
             <div class="row">
@@ -65,13 +65,12 @@
             <div class="row mt-4">
                 <div class="col-md-9">
                     <div class="create-rfq-div">
-                        <h4>Important for manufacturers!</h4>
+                        <h4>Üreticiler için önemli!</h4>
                         <p>
-                            If your workload is too high, or your machinery breaks down, you can outsource to
-                            qualified CNC Manufacturing companies on short notice.
+                            İş yükünüz çok fazlaysa veya makineniz bozulursa, kısa sürede kalifiye CNC İmalat şirketlerine dış kaynak sağlayabilirsiniz.
                         </p>
                         <button class="btn btn-create-rfq">
-                            CRATE AN RFQ
+                            YENİ BİR RFQ OLUŞTUR
                         </button>
                     </div>
 
@@ -85,7 +84,7 @@
             </div>
         </div>
     </div>
-    <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
+    <div class="tab-pane fade bg-white" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
         @await Component.InvokeAsync("CreateRFQ") 
     </div>
     <div class="tab-pane fade" id="pills-my" role="tabpanel" aria-labelledby="pills-my-tab">...b</div>

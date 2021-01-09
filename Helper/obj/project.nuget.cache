@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2ubJhyDGiZHFEy8waCJafH/qXjH/Me+od693bojr4rrCGrf5+I0C1yd54kq6M1twRQWtsVvl2qOWsu24pB8uIg==",
+  "dgSpecHash": "Mb2Asc7UlUvTdlzZ2h3WkTHX7GKRcga77xuKpNDMTIkSCQzTlPGnSJVvO9fQpPf9a51TFLDLX2tk56F+E4fGDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Helper\\Helper.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Helper\\Helper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

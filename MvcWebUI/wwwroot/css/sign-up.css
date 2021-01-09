@@ -20,10 +20,7 @@
     border-radius: 0;
     border: 0;
     margin: 0;
-    
-    /* buton click engelleme kodu */
-    /* pointer-events: none; */
-    /* buton click engelleme kodu */
+    pointer-events: none;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
@@ -50,12 +47,11 @@
     width: 100%;
 }
 
-.role-input[type="radio"]:checked + label, .industry-input[type="radio"]:checked + label, .gender-input[type="radio"]:checked + label{
+.role-input[type="radio"]:checked + label, .industry-input[type="checkbox"]:checked + label, .gender-input[type="radio"]:checked + label{
     background-color: var(--orange);
     color: white;
     border: 0;
 }
-
 
 .role-title, .industry-title{
     padding-left: .7rem;
@@ -106,6 +102,16 @@
 }
 .avail-matter-div li, .user-data-info-div li, .company-profile-info-div li{
     margin-bottom: .7rem;
+}
+
+.step-comp{
+    background-color: var(--orange);
+}
+
+.bootstrap-select button, .bootstrap-select button:hover, .bootstrap-select:focus{
+    background-color: transparent !important;
+    padding-left: 0 !important;
+    border: 0 !important;
 }
 
 

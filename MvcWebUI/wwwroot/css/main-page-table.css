@@ -1,7 +1,8 @@
 body {
     background-color: var(--main-bg-color);
 }
-p{
+
+p {
     margin-bottom: 0;
 }
 
@@ -17,7 +18,7 @@ p{
     align-items: center;
 }
 
-.navbar-brand>span {
+.navbar-brand > span {
     color: white;
     background-color: var(--orange);
     padding: .5rem;
@@ -26,8 +27,7 @@ p{
 }
 
 .notification-dropdown:after,
-.btn-table-dropdown:after/*dropdown simgesi gizlemek için*/
-{
+.btn-table-dropdown:after /*dropdown simgesi gizlemek için*/ {
     content: none;
     position: relative;
 }
@@ -64,12 +64,12 @@ p{
     margin-left: 1rem;
 }
 
-.tab-menu-button .nav-link {
-    color: white;
-}
+    .tab-menu-button .nav-link {
+        color: white;
+    }
 
 .nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
+.nav-pills .show > .nav-link {
     background-color: white;
     color: var(--dark-blue);
 }
@@ -97,15 +97,15 @@ p{
     background-color: white;
 }
 
-.card-header button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    .card-header button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.card-header button>p {
-    margin-bottom: 0;
-}
+        .card-header button > p {
+            margin-bottom: 0;
+        }
 
 .btn-search-filter,
 .btn-search-filter:hover,
@@ -116,6 +116,14 @@ p{
     color: white;
     margin-top: 2rem;
 }
+
+    .btn-save-rfq,
+    .btn-save-rfq:hover {
+        background-color: var(--orange);
+        height: 54px;
+        color: white;
+        margin-top: 2rem;
+    }
 
 .btn-reset-filter,
 .btn-reset-filter:hover {
@@ -141,19 +149,19 @@ table tr td:first-child input {
     align-items: center;
 }
 
-.table-nav-pills{
+.table-nav-pills {
     align-items: center;
 }
 
-.table-nav-pills .nav-link.active, .table-nav-pills .show> .nav-link, .table-nav-pills .nav-link.active, .table-nav-pills .show> .nav-link .current-no{
-    color: var(--orange);
-    border-color: var(--orange);
-}
+    .table-nav-pills .nav-link.active, .table-nav-pills .show > .nav-link, .table-nav-pills .nav-link.active, .table-nav-pills .show > .nav-link .current-no {
+        color: var(--orange);
+        border-color: var(--orange);
+    }
 
-.table-nav-pills .nav-link{
-    color: var(--dark-blue);
-    border-color: var(--dark-blue);
-}
+    .table-nav-pills .nav-link {
+        color: var(--dark-blue);
+        border-color: var(--dark-blue);
+    }
 
 .current-no, .last-30-days-no {
     margin-left: .5rem;
@@ -171,64 +179,63 @@ table tr td:first-child input {
     margin-bottom: 0;
 }
 
-.navigate-buttons{
+.navigate-buttons {
     float: right;
 }
 
-.modal-body{
+.modal-body {
     color: var(--font-color);
     padding: 2rem;
 }
 
-.modal-footer .row{
+.modal-footer .row {
     width: 100%;
     align-items: center;
 }
 
-.desc-detail, .company-desc, .files-desc{
+.desc-detail, .company-desc, .files-desc {
     display: flex;
     align-items: flex-start;
 }
 
-.desc-detail p, .company-desc p, .files-desc p{
-    margin-bottom: 0;
-    margin-left: 1rem;
-}
+    .desc-detail p, .company-desc p, .files-desc p {
+        margin-bottom: 0;
+        margin-left: 1rem;
+    }
 
-.dimensions ul{
+.dimensions ul {
     padding-left: 0;
-    
 }
 
-.dimensions li{
+.dimensions li {
     list-style-type: none;
 }
 
-.detail-info{
+.detail-info {
     text-align: center;
 }
 
-.view-left{
+.view-left {
     display: flex;
     align-items: baseline;
     justify-content: center;
 }
 
-.view-left h1, .view-left h5{
-    margin-bottom: 0;
-}
+    .view-left h1, .view-left h5 {
+        margin-bottom: 0;
+    }
 
-.modal-company-info{
+.modal-company-info {
     margin-top: 1.5rem;
 }
 
-.btn-access-details, .btn-access-details:hover{
+.btn-access-details, .btn-access-details:hover {
     background-color: var(--orange);
     height: 50px;
     color: white;
 }
 
-.btn-save, .btn-save:hover{
+.btn-save, .btn-save:hover {
     border: 2px solid var(--orange);
     background-color: transparent;
     color: var(--orange);
@@ -247,13 +254,13 @@ table tr td:first-child input {
     border: 2px solid var(--orange);
 }
 
-.company .card-body {
-    padding: 1rem 1.25rem;
-}
+    .company .card-body {
+        padding: 1rem 1.25rem;
+    }
 
-.company .card-title {
-    margin-bottom: 0;
-}
+    .company .card-title {
+        margin-bottom: 0;
+    }
 
 .page-item {
     margin-right: 1rem;
@@ -263,23 +270,22 @@ table tr td:first-child input {
     padding-left: 1rem;
 }
 
-.new-companies-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    list-style-type: none;
-}
+    .new-companies-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        list-style-type: none;
+    }
 
-.new-companies-list li::before {
-    content: "\25FC";
-    color: var(--orange);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-
-}
+        .new-companies-list li::before {
+            content: "\25FC";
+            color: var(--orange);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
 
 .new-companies h6 {
     margin-bottom: 1rem;
@@ -301,25 +307,25 @@ footer {
     margin-top: 1rem;
 }
 
-.footer-main-page-content .copyright span {
-    color: var(--dark-blue) !important;
-}
+    .footer-main-page-content .copyright span {
+        color: var(--dark-blue) !important;
+    }
 
-.footer-main-page-content ul {
-    display: flex;
-    list-style-type: none;
-    margin-bottom: 0;
-}
+    .footer-main-page-content ul {
+        display: flex;
+        list-style-type: none;
+        margin-bottom: 0;
+    }
 
-.footer-main-page-content li {
-    margin-right: 1rem;
-}
+    .footer-main-page-content li {
+        margin-right: 1rem;
+    }
 
-.footer-main-page-content li a {
-    color: var(--font-color);
-}
+        .footer-main-page-content li a {
+            color: var(--font-color);
+        }
 
-.input-group-text{
+.input-group-text {
     background-color: transparent;
     border: 0;
 }
@@ -379,12 +385,13 @@ footer {
         margin-top: 2rem;
     }
 
-    .table-nav-pills{
+    .table-nav-pills {
         justify-content: center;
         margin-top: 5rem;
         padding-top: 1rem;
     }
-    .last-30-days{
+
+    .last-30-days {
         margin-right: 0 !important;
     }
 
@@ -394,20 +401,22 @@ footer {
         width: 100%;
     }
 
-    .filter-sorting{
+    .filter-sorting {
         width: 100%;
     }
 
-    .table-pagination .col-md-4, .table-pagination .col-md-5, .table-pagination .col-md-3{
+    .table-pagination .col-md-4, .table-pagination .col-md-5, .table-pagination .col-md-3 {
         margin-top: 1rem;
     }
-    .modal-footer .row .col-md-6:first-child{
+
+    .modal-footer .row .col-md-6:first-child {
         text-align: center;
         margin-bottom: 1rem;
     }
-    
 }
 
-@media screen and (max-width: 375px) {}
+@media screen and (max-width: 375px) {
+}
 
-@media screen and (max-width: 370px) {}
+@media screen and (max-width: 370px) {
+}

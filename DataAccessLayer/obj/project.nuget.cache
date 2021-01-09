@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QXxV9UN2tOmdNaGYtNEqP+FN0gWVE/nQcbAxEDNPquHdo1XN5sgSazNWXhR9kK/60qYVdJUDeQ+1wPK3RkrH6A==",
+  "dgSpecHash": "YWNcbx7ohHIz1ekofxZRH2Dcg+cS2DXyznIrF0HLT0GSot9o2sENZShdLr1fDXl8VcWtR14m9J/yq+lHgaxfwg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\CNC\\DataAccessLayer\\DataAccessLayer.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\DataAccessLayer\\DataAccessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

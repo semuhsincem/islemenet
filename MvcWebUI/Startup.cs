@@ -53,9 +53,9 @@ namespace MvcWebUI
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddScoped<IAdvertisementService, AdvertisementManager>();
+            services.AddScoped<IRFQService, RFQManager>();
             services.AddScoped<IConstantService, ConstantManager>();
-            services.AddScoped<IAdvertisementDal, EfAdvertismentDal>();
+            services.AddScoped<IRFQDal, EfRFQDal>();
             services.AddScoped<ICertificationDal, EfCertificationDal>();
             services.AddScoped<ICompanySizeDal, EfCompanySizeDal>();
             services.AddScoped<ICountryDal, EfCountryDal>();
@@ -80,13 +80,10 @@ namespace MvcWebUI
             services.AddScoped<IRFQCountryService, RFQCountryManager>();
             services.AddScoped<IRFQCountryDal, EfRFQCountryDal>();
 
+            services.AddScoped<IRfqFileService, RfqFileManager>();
+            services.AddScoped<IRfqFileDal, EfRfqFileDal>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            //.AddFluentValidation();
-            //services.AddFormHelper(new FormHelperConfiguration
-            //{
-            //    CheckTheFormFieldsMessage = "Form alanlarýný kontrol ediniz."
-            //});
 
             #region validations
             //services.AddTransient<IValidator, RegisterViewModelValidator>();
@@ -111,7 +108,6 @@ namespace MvcWebUI
             app.UseStaticFiles();
 
             app.UseRouting();
-            //app.UseFormHelper();
             var cultureInfo = new CultureInfo("tr-TR");
             CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
             CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;

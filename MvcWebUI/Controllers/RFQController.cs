@@ -1,47 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Middle;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MvcWebUI.IdentityCore;
 using ViewModels.Datatable;
-using ViewModels.Login;
 using ViewModels.RFQ;
 
 namespace MvcWebUI.Controllers
 {
     public class RFQController : Controller
     {
-        private IAdvertisementService _rfqService;
+        private IRFQService _rfqService;
         private UserManager<AppUser> _userManager { get; set; }
         private RoleManager<AppRole> _roleManager { get; set; }
         private SignInManager<AppUser> _signInManager { get; set; }
+        private readonly IHostingEnvironment _environment;
         private IUserCertificateService _userCertificateService { get; set; }
         private IUserIndustryService _userIndustryService { get; set; }
         private IUserTechnologyService _userTechnologyService { get; set; }
         private IUserMaterialService _userMaterialService { get; set; }
         public IRFQCountryService _rFQCountryService { get; set; }
+        public IRfqFileService _rfqFileService { get; set; }
         private readonly IConstantService _constantService;
         public RFQController(UserManager<AppUser> userManager,
             RoleManager<AppRole> roleManager,
             SignInManager<AppUser> signInManager,
+            IHostingEnvironment environment,
             IConstantService constantService,
             IUserCertificateService userCertificateService,
             IUserIndustryService userIndustryService,
             IUserTechnologyService userTechnologyService,
             IUserMaterialService userMaterialService,
-            IAdvertisementService rfqService,
-            IRFQCountryService rFQCountryService)
+            IRFQService rfqService,
+            IRFQCountryService rFQCountryService,
+            IRfqFileService rfqFileService
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _environment = environment;
             _constantService = constantService;
             _userCertificateService = userCertificateService;
             _userIndustryService = userIndustryService;
@@ -49,6 +56,7 @@ namespace MvcWebUI.Controllers
             _userMaterialService = userMaterialService;
             _rfqService = rfqService;
             _rFQCountryService = rFQCountryService;
+            _rfqFileService = rfqFileService;
         }
 
         public IActionResult Index()
@@ -56,20 +64,14 @@ namespace MvcWebUI.Controllers
             ViewData["RFQ"] = "menu-item-active";
             return View();
         }
-        [HttpGet]
-        public IActionResult Create()
-        {
 
-            ViewData["CreateRFQ"] = "menu-item-active";
-            var model = FillModelSelectListItemsForCreateRFQViewModel(new CreateRFQViewModel());
-            return View(model);
-        }
         [HttpPost]
-        public IActionResult Create(CreateRFQViewModel model)
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([FromForm] CreateRFQViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var rfq = _rfqService.AddAdvertisment(new Advertisement()
+                var rfq = _rfqService.AddAdvertisment(new RFQ()
                 {
                     Title = model.Title,
                     BasicInformation = model.BasicInformation,
@@ -83,9 +85,24 @@ namespace MvcWebUI.Controllers
                     MinTol = model.MinTol,
                     Need = model.Need,
                     PublicationSettingsType = model.PublicationSettingsId,
-                    Quantity = model.Quantity,
+                    Quantity = model.Quantity.HasValue ? model.Quantity.Value : 1,
                     RFQDeadline = model.RFQDeadline
                 });
+                #region Dosyaları Ekle
+                List<string> filePaths = new List<string>();
+                foreach (var item in model.Files)
+                {
+                    var path = await UploadFile(item);
+                    filePaths.Add(path);
+                }
+                _rfqFileService.AddFileToRFQ(filePaths, rfq.Id, Enums.RFQHelpers.ECreateRfqFileType.Normal);
+                #endregion Dosya Ekle
+                #region İlanın Teknolojilerini Ekle
+                
+
+                #endregion
+
+
                 if (model.PublicationSettingsId == 2)
                 {
                     List<int> selectedList = new List<int>();
@@ -99,7 +116,7 @@ namespace MvcWebUI.Controllers
 
 
             }
-            return View();
+            return Json(new { success = true });
         }
 
         [HttpPost]
@@ -110,30 +127,8 @@ namespace MvcWebUI.Controllers
             var advertisements = _rfqService.GetAdvertisements();
             //Db Queryy -> End
 
-            //int recordsFiltered = advertisements.Count();
             int recordsTotal = advertisements.Count();
 
-            if (model.columns[0].search.value != null)
-            {
-                string exp = model.columns[0].search.value;
-                //advertisements = advertisements.Where(x =>
-                //x.Content.ToLower().Contains(exp.ToLower()) ||
-                //x.Title.ToLower().Contains(exp.ToLower()) ||
-                //x.Cityname.ToLower().Contains(exp.ToLower())).ToList();
-            }
-            if (model.columns[1].search.value != null && model.columns[1].search.value != "Hiçbiri seçilmedi")
-            {
-                //foreach (var item in model.columns[1].search.value.Split(","))
-                //{
-                //    City city = _cityService.GetList(x => x.Name.ToLower() == item.Trim().ToLower()).FirstOrDefault();
-                //    if (city != null)
-                //    {
-                //        expCities.Add(city.Id);
-
-                //    }
-                //}
-                //advertisementsViewModel = advertisementsViewModel.Where(x => expCities.Contains(x.CityId)).OrderByDescending(x => x.Cityname).ToList();
-            }
             int recordsFiltered = advertisements.Count();
             var data = advertisements.Skip(model.start).Take(model.length).ToList();
             return Json(new
@@ -163,7 +158,7 @@ namespace MvcWebUI.Controllers
             foreach (var item in materials)
                 model.Materials.Add(new SelectListItem() { Text = item.MaterialName, Value = item.Id.ToString() });
             foreach (var item in technologies)
-                model.Technogies.Add(new SelectListItem() { Text = item.TechnologyName, Value = item.Id.ToString() });
+                model.Technologies.Add(new SelectListItem() { Text = item.TechnologyName, Value = item.Id.ToString() });
             foreach (var item in certifications)
                 model.Certifications.Add(new SelectListItem() { Text = item.CertificateName, Value = item.Id.ToString() });
 
@@ -174,6 +169,29 @@ namespace MvcWebUI.Controllers
         {
             return View();
         }
+        public async Task<string> UploadFile(IFormFile file)
+        {
+            try
+            {
+                if (file.Length > 0)
+                {
+                    string folderRoot = Path.Combine(_environment.ContentRootPath, "Uploads");
+                    string filePath = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                    filePath = Path.Combine(folderRoot, filePath);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
+                return file.FileName;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
+
+
 
 
     }

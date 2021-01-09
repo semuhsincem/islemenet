@@ -277,6 +277,16 @@
         "runtime": {
           "bin/placeholder/Core.dll": {}
         }
+      },
+      "Enums/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Enums.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Enums.dll": {}
+        }
       }
     }
   },
@@ -819,11 +829,17 @@
       "type": "project",
       "path": "../Core/Core.csproj",
       "msbuildProject": "../Core/Core.csproj"
+    },
+    "Enums/1.0.0": {
+      "type": "project",
+      "path": "../Enums/Enums.csproj",
+      "msbuildProject": "../Enums/Enums.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Core >= 1.0.0",
+      "Enums >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.7"
     ]
   },
@@ -835,11 +851,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\Entities.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Entities\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -861,8 +877,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\source\\repos\\CNC\\Core\\Core.csproj"
+            "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Core\\Core.csproj"
+            },
+            "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Enums\\Enums.csproj"
             }
           }
         }

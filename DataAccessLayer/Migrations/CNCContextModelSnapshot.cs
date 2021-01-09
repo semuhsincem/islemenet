@@ -217,78 +217,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("UserTechologies");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.Advertisement", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("AtCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("AtDeleted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("AtModified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("BasicInformation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CorrespondenceLanguage")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CustomRFQId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DelivaryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Diameter")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Height")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Length")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MinTol")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Need")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OfferCurrency")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PublicationSettingsType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("RFQDeadline")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Width")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RFQ");
-                });
-
             modelBuilder.Entity("Entities.Concrete.Certification", b =>
                 {
                     b.Property<int>("Id")
@@ -487,6 +415,119 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Materials");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.RFQ", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("AtCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BasicInformation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CorrespondenceLanguage")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomRFQId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DelivaryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Diameter")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Height")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Length")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MinTol")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Need")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OfferCurrency")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PublicationSettingsType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("RFQDeadline")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RfqFilesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Width")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RFQ");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.RfqFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("AtCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("AtModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FileType")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("RFQId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RFQId");
+
+                    b.ToTable("RfqFiles");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Technology", b =>
                 {
                     b.Property<int>("Id")
@@ -515,6 +556,15 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Technologies");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.RfqFile", b =>
+                {
+                    b.HasOne("Entities.Concrete.RFQ", null)
+                        .WithMany("RfqFiles")
+                        .HasForeignKey("RFQId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

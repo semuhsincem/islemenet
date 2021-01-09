@@ -15,11 +15,6 @@
         label {
             font-size: 13px;
         }
-
-        addDropDown {
-            background-color: white !important;
-            border: 0px !important;
-        }
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -225,21 +220,22 @@
                         <div class="col-md-6">
                             <h6 class="industry-title">ENDÜSTRİ SEKTÖRÜ*</h6>
                             <div class="form-check form-check-inline w-30">
-                                <input class="form-check-input industry-input" type="radio" asp-for="Sector" value="Metal" checked id="exampleRadios3">
+                                <input class="form-check-input industry-input" asp-for="SectorMetal"  
+                                       id="exampleRadios3" checked>
                                 <label class="form-check-label industry-label btn btn-buyer" for="exampleRadios3">
                                     Metal
                                 </label>
                             </div>
                             <div class="form-check form-check-inline w-30">
-                                <input class="form-check-input industry-input" type="radio" asp-for="Sector"
-                                       id="exampleRadios4" value="Wood">
+                                <input class="form-check-input industry-input"  asp-for="SectorWood"
+                                       id="exampleRadios4">
                                 <label class="form-check-label industry-label btn btn-manifacturer" for="exampleRadios4">
                                     Wood
                                 </label>
                             </div>
                             <div class="form-check form-check-inline w-30">
-                                <input class="form-check-input industry-input" type="radio" asp-for="Sector"
-                                       id="exampleRadios5" value="3D">
+                                <input class="form-check-input industry-input" asp-for="SectorThreeD"
+                                       id="exampleRadios5">
                                 <label class="form-check-label industry-label btn btn-manifacturer" for="exampleRadios5">
                                     3D
                                 </label>
@@ -252,10 +248,10 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     @*<div class="form-group signup-form-group">
-                                            <label class="form-text" asp-for="City"></label>
-                                            <input type="text" asp-for="City" class="form-control signup-form-control">
-                                            <span asp-validation-for="City" class="text-danger"></span>
-                                        </div>*@
+                    <label class="form-text" asp-for="City"></label>
+                    <input type="text" asp-for="City" class="form-control signup-form-control">
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>*@
                                     <div class="form-group signup-form-group">
                                         <label class="form-text" asp-for="City"></label>
                                         <select class="selectpicker form-control" asp-for="City" data-live-search="true">
@@ -267,7 +263,7 @@
                                         <span asp-validation-for="City" class="text-danger"></span>
                                     </div>
                                 </div>
-                                 
+
                                 <div class="col-md-6">
                                     <div class="form-group signup-form-group">
                                         <label class="form-text" asp-for="Zip"></label>
@@ -724,7 +720,6 @@
 
 
         function BackgroundDropdown() {
-            debugger;
             var len = $(".dropdown-toggle").length;
             for (var i = 1; i <= len; i++) {
                 $("button[aria-owns='bs-select-" + i + "']").css({ "background-color": "white", "border": "0px" });

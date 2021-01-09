@@ -25,6 +25,7 @@
       "MvcWebUI/1.0.0": {
         "dependencies": {
           "BusinessLayer": "1.0.0",
+          "Enums": "1.0.0",
           "Helper": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.7",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "3.1.7",
@@ -2599,13 +2600,22 @@
       },
       "Entities/1.0.0": {
         "dependencies": {
-          "Core": "1.0.0"
+          "Core": "1.0.0",
+          "Enums": "1.0.0"
         },
         "runtime": {
           "Entities.dll": {}
         },
         "compile": {
           "Entities.dll": {}
+        }
+      },
+      "Enums/1.0.0": {
+        "runtime": {
+          "Enums.dll": {}
+        },
+        "compile": {
+          "Enums.dll": {}
         }
       },
       "Helper/1.0.0": {
@@ -5650,6 +5660,11 @@
       "sha512": ""
     },
     "Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Enums/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
