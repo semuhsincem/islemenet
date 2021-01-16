@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Middle;
 using BusinessLayer.Abstract.Middle.RfqMiddle;
@@ -13,21 +8,17 @@ using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Middle;
 using DataAccessLayer.Abstract.Middle.RfqMiddles;
 using DataAccessLayer.Concrete.EntityFramework;
-using DataAccessLayer.Concrete.EntityFramework.Context;
 using DataAccessLayer.Concrete.EntityFramework.Middle;
 using DataAccessLayer.Concrete.EntityFramework.Middle.RfqMiddle;
-using Helper.Constants;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using MvcWebUI.IdentityCore;
+using System.Globalization;
 
 namespace MvcWebUI
 {
@@ -96,8 +87,9 @@ namespace MvcWebUI
             services.AddScoped<IRfqTechnologyService, RfqTechnologyManager>();
             services.AddScoped<IRfqTechnologyDal, EfRfqTechnologyDal>();
             #endregion
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
-
+            services.AddControllersWithViews().AddRazorRuntimeCompilation().AddNewtonsoftJson(opt=> {
+                opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
             #region validations
             //services.AddTransient<IValidator, RegisterViewModelValidator>();
 

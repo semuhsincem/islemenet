@@ -93,7 +93,6 @@ var KTDatatablesSearchOptionsAdvancedSearch = function() {
 				{
 					targets: 1,
 					render: function (data, type, full, meta) {
-						debugger;
 						var d = new Date(data);
 						return d.getDay() + "/" + d.getMonth()+"/" + d.getUTCFullYear();
 					},
@@ -101,7 +100,6 @@ var KTDatatablesSearchOptionsAdvancedSearch = function() {
 				{
 					targets: 2,
 					render: function (data, type, full, meta) {
-						debugger;
 						var d = new Date(data);
 						return d.getDay() + "/" + d.getMonth() + "/" + d.getUTCFullYear();
 					},

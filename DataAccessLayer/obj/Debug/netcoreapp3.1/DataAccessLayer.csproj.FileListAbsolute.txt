@@ -34,3 +34,7 @@ C:\Users\ASUS\Documents\GitHub\islemenet\DataAccessLayer\obj\Debug\netcoreapp3.1
 C:\Users\ASUS\Documents\GitHub\islemenet\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.dll
 C:\Users\ASUS\Documents\GitHub\islemenet\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.pdb
 C:\Users\ASUS\Documents\GitHub\islemenet\DataAccessLayer\obj\Debug\netcoreapp3.1\DataAccessLayer.genruntimeconfig.cache
+C:\Users\ASUS\Documents\GitHub\islemenet\DataAccessLayer\bin\Debug\netcoreapp3.1\Helper.dll
+C:\Users\ASUS\Documents\GitHub\islemenet\DataAccessLayer\bin\Debug\netcoreapp3.1\ViewModels.dll
+C:\Users\ASUS\Documents\GitHub\islemenet\DataAccessLayer\bin\Debug\netcoreapp3.1\ViewModels.pdb
+C:\Users\ASUS\Documents\GitHub\islemenet\DataAccessLayer\bin\Debug\netcoreapp3.1\Helper.pdb

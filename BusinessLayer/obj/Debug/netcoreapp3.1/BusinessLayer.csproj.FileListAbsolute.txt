@@ -38,3 +38,7 @@ C:\Users\ASUS\Documents\GitHub\islemenet\BusinessLayer\bin\Debug\netcoreapp3.1\C
 C:\Users\ASUS\Documents\GitHub\islemenet\BusinessLayer\bin\Debug\netcoreapp3.1\Enums.pdb
 C:\Users\ASUS\Documents\GitHub\islemenet\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CopyComplete
 C:\Users\ASUS\Documents\GitHub\islemenet\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.genruntimeconfig.cache
+C:\Users\ASUS\Documents\GitHub\islemenet\BusinessLayer\bin\Debug\netcoreapp3.1\Helper.dll
+C:\Users\ASUS\Documents\GitHub\islemenet\BusinessLayer\bin\Debug\netcoreapp3.1\ViewModels.dll
+C:\Users\ASUS\Documents\GitHub\islemenet\BusinessLayer\bin\Debug\netcoreapp3.1\ViewModels.pdb
+C:\Users\ASUS\Documents\GitHub\islemenet\BusinessLayer\bin\Debug\netcoreapp3.1\Helper.pdb

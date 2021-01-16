@@ -6,10 +6,13 @@ namespace Entities.Abstract.MiddleTables.RFQMiddles
 {
     public class RfqTechnology : BaseEntity, IEntity
     {
-        public int TechnologyId { get; set; }
 
         public int RFQId { get; set; }
         [ForeignKey(nameof(RFQId))]
         public virtual RFQ RFQ { get; set; }
+        public int TechnologyId { get; set; }
+
+        [ForeignKey(nameof(TechnologyId))]
+        public virtual Technology Technology { get; set; }
     }
 }

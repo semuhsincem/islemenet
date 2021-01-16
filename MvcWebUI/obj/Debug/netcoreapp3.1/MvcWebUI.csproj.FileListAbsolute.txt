@@ -890,7 +890,6 @@ C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\LeftMenu\Default.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\NewCompanies\Default.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\RFQList\Default.cshtml.g.cs
-C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\SearchRFQ\Default.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout2.cshtml.g.cs
@@ -907,3 +906,5 @@ C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\MvcWeb
 C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\bin\Debug\netcoreapp3.1\Enums.dll
 C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\bin\Debug\netcoreapp3.1\Enums.pdb
 C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\SearchRFQ\Default.cshtml.g.cs
+C:\Users\ASUS\Documents\GitHub\islemenet\MvcWebUI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll

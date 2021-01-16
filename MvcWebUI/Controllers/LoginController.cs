@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BusinessLayer.Abstract;
+﻿using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Middle;
-using BusinessLayer.Concrete;
 using Entities.Abstract.MiddleTables;
 using Helper;
 using Helper.Constants;
 using Helper.Enums;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MvcWebUI.IdentityCore;
-using MvcWebUI.Models;
+using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using ViewModels.Login;
 
 namespace MvcWebUI.Controllers
@@ -28,6 +27,7 @@ namespace MvcWebUI.Controllers
         private IUserTechnologyService _userTechnologyService { get; set; }
         private IUserMaterialService _userMaterialService { get; set; }
         private readonly IConstantService _constantService;
+        private readonly IWebHostEnvironment _environment;
         public LoginController(UserManager<AppUser> userManager,
             RoleManager<AppRole> roleManager,
             SignInManager<AppUser> signInManager,
@@ -35,7 +35,8 @@ namespace MvcWebUI.Controllers
             IUserCertificateService userCertificateService,
             IUserIndustryService userIndustryService,
             IUserTechnologyService userTechnologyService,
-            IUserMaterialService userMaterialService)
+            IUserMaterialService userMaterialService,
+            IWebHostEnvironment environment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -45,6 +46,7 @@ namespace MvcWebUI.Controllers
             _userIndustryService = userIndustryService;
             _userTechnologyService = userTechnologyService;
             _userMaterialService = userMaterialService;
+            _environment = environment;
         }
         [HttpGet]
         public IActionResult Register()
@@ -120,7 +122,12 @@ namespace MvcWebUI.Controllers
                       },
                        protocol: HttpContext.Request.Scheme);
 
-                    EmailHelper.SendMail(newUser.Email, "isleme.net Email Doğrulama", string.Format("<h3>isleme.net e giriş yapabilmek için lütfen aşağıdaki bağlantıya tıklayınız.</h3><br /><a href={0} target='_blanck'>Go</a>", confirmationLink), true);
+                    string folderRoot = Path.Combine(_environment.ContentRootPath, @"wwwroot\assets\htmlTemplate.html");
+                    string htmlString = System.IO.File.ReadAllText(folderRoot);
+                    htmlString = htmlString.Replace("{0}", newUser.FirstName+" "+newUser.LastName);
+                    htmlString = htmlString.Replace("{1}", confirmationLink);
+
+                    EmailHelper.SendMail(newUser.Email, "isleme.net Email Doğrulama", htmlString, true);
                 }
                 return RedirectToAction("RegisterCompleted");
             }

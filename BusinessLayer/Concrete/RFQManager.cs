@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using ViewModels.RFQ;
 
 namespace BusinessLayer.Concrete
 {
@@ -31,9 +32,9 @@ namespace BusinessLayer.Concrete
             return _advService.GetList(expression);
         }
 
-        public List<RFQ> GetRfqWithIncludes(Expression<Func<RFQ, bool>> expression = null)
+        public List<RFQ> GetRfqWithIncludes(SearchRfqViewModel model = null, int skip = 0, int take = 10)
         {
-            return _advService.GetListAllInclude(expression).ToList();
+            return _advService.GetListAllInclude(model, skip,take).ToList();
         }
     }
 }

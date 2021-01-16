@@ -271,30 +271,3 @@
             </button>
         </div>
     </form>
-    <script>
-        $(function () {
-
-            $("#search").click(function () {
-                var _form = $("#searchForm")[0];
-                var model = new FormData(_form);
-                $.ajax({
-                    type: "POST",
-                    url: "/RFQ/GetRFQList",
-                    data: model,
-                    processData: false,
-                    contentType: false,
-                    success: function (res) {
-                        console.log(res);
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
-
-                });
-            });
-
-            $("#clearfilter").click(function () {
-                alert("filter");
-            });
-        });
-    </script>

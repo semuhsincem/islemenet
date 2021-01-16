@@ -7,9 +7,13 @@ namespace Entities.Abstract.MiddleTables.RFQMiddles
     public class RfqCertification : BaseEntity, IEntity
     {
         public int RFQId { get; set; }
-        public int CertificationId { get; set; }
 
         [ForeignKey(nameof(RFQId))]
         public virtual RFQ RFQ { get; set; }
+
+        public int CertificationId { get; set; }
+
+        [ForeignKey(nameof(CertificationId))]
+        public virtual Certification Certification { get; set; }
     }
 }

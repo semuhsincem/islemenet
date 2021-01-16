@@ -82,6 +82,8 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CertificationId");
+
                     b.HasIndex("RFQId");
 
                     b.ToTable("RfqCertifications");
@@ -116,6 +118,8 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MaterialId");
 
                     b.HasIndex("RFQId");
 
@@ -153,6 +157,8 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("RFQId");
+
+                    b.HasIndex("TechnologyId");
 
                     b.ToTable("RfqTechnologies");
                 });
@@ -665,6 +671,12 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("Entities.Abstract.MiddleTables.RFQMiddles.RfqCertification", b =>
                 {
+                    b.HasOne("Entities.Concrete.Certification", "Certification")
+                        .WithMany()
+                        .HasForeignKey("CertificationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Entities.Concrete.RFQ", "RFQ")
                         .WithMany("RfqCertifications")
                         .HasForeignKey("RFQId")
@@ -674,6 +686,12 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("Entities.Abstract.MiddleTables.RFQMiddles.RfqMaterial", b =>
                 {
+                    b.HasOne("Entities.Concrete.Material", "Material")
+                        .WithMany()
+                        .HasForeignKey("MaterialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Entities.Concrete.RFQ", "RFQ")
                         .WithMany("RfqMaterials")
                         .HasForeignKey("RFQId")
@@ -686,6 +704,12 @@ namespace DataAccessLayer.Migrations
                     b.HasOne("Entities.Concrete.RFQ", "RFQ")
                         .WithMany("RfqTechnologies")
                         .HasForeignKey("RFQId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.Technology", "Technology")
+                        .WithMany()
+                        .HasForeignKey("TechnologyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

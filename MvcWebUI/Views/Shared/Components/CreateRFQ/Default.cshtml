@@ -16,7 +16,7 @@
       data-ajax-complete="formComplete"
       data-ajax-confirm="confirm"
       data-ajax="true" data-ajax-method="POST">
-    @Html.AntiForgeryToken();
+    @Html.AntiForgeryToken()
     <div class="container py-5">
         <div class="page-header">
             <h2>YENİ RFQ</h2>
@@ -363,7 +363,6 @@
 
 <script>
     $(document).ready(function () {
-        debugger;
         $.validator.unobtrusive.parse("#RFQEkleForm");
 
         var $form = $("#RFQEkleForm");
@@ -402,7 +401,6 @@
             },
         })
             .then((isConfirm) => {
-                debugger;
                 var _form = $("#RFQEkleForm")[0];
                 var model = new FormData(_form);
                 var files1 = document.getElementById("Files").files;

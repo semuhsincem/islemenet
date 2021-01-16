@@ -38,6 +38,9 @@
               },
               "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj": {
                 "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj"
+              },
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj"
               }
             }
           }
@@ -183,6 +186,9 @@
               },
               "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj": {
                 "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\Entities\\Entities.csproj"
+              },
+              "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\islemenet\\ViewModels\\ViewModels.csproj"
               }
             }
           }
@@ -197,6 +203,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.7, )"
@@ -484,6 +494,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.7, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.11, )"
             },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",

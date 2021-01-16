@@ -11,5 +11,8 @@ namespace Entities.Abstract.MiddleTables.RFQMiddles
 
         [ForeignKey(nameof(RFQId))]
         public virtual RFQ RFQ { get; set; }
+
+        [ForeignKey(nameof(MaterialId))]
+        public virtual Material Material { get; set; }
     }
 }

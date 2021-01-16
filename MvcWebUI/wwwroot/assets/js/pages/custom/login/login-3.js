@@ -67,7 +67,6 @@ var KTLogin = function() {
 					KTUtil.btnRelease(formSubmitButton);
 
 					if (response && typeof response === 'object' && response.status && response.status == 'success') {
-						debugger;
 						window.location.href = "/Home/Index";
 					} else {
 						Swal.fire({

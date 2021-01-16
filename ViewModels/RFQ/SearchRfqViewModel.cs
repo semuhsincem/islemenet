@@ -30,6 +30,11 @@ namespace ViewModels.RFQ
             Technologies = new List<SelectListItem>();
             Materials = new List<SelectListItem>();
             Certifications = new List<SelectListItem>();
+            Page = 1;
+            RecordCount = 10;
         }
+        //Filter için
+        public int Page { get; set; }
+        public int RecordCount { get; set; }
     }
 }

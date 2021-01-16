@@ -55,7 +55,6 @@ var KTLogin = function() {
 
 				// Form Validation & Ajax Submission: https://formvalidation.io/guide/examples/using-ajax-to-submit-the-form
 				*
-					debugger;
 		        FormValidation.utils.fetch(formSubmitUrl, {
 		            method: 'POST',
 					dataType: 'json',

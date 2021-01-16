@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
@@ -61,6 +62,7 @@ namespace MvcWebUI.Controllers
 
         public IActionResult Index()
         {
+           
             ViewData["RFQ"] = "menu-item-active";
             return View();
         }
@@ -129,9 +131,8 @@ namespace MvcWebUI.Controllers
         [HttpPost]
         public IActionResult GetRFQList([FromForm]SearchRfqViewModel model)
         {
-
-            var res = _rfqService.GetRfqWithIncludes();
-            return Json("");
+            var res = _rfqService.GetRfqWithIncludes(model);
+            return Json(res);
         }
 
         public CreateRFQViewModel FillModelSelectListItemsForCreateRFQViewModel(CreateRFQViewModel model)
@@ -186,7 +187,36 @@ namespace MvcWebUI.Controllers
             }
         }
 
+        //protected override Expression<Func<RFQ, bool>> GetExpression()
+        //{
+        //    var beginTime = DateTimeOffset.Parse("2019-08-03 12:00");
+        //    var endTime = DateTimeOffset.Parse("2019-08-04 11:00");
+        //    // We want to build the expression for the "Where" clause
 
+        //    // Example of Query we will eventually run.
+        //    // context.FilmTimeEntities.Where(ft => ft.FilmId == 3 &amp;&amp; (ft.StartTime < beginTime || ft.StartTime >= endTime));
+
+        //    // Time to build up the clause in the ANY field
+        //    var ftParameter = Expression.Parameter(typeof(RFQ), "ft"); // ft =>
+
+        //    var ftIdProperty = Expression.Property(ftParameter, "FilmId"); // ft.FilmId
+        //    var ftIdClause = Expression.Equal(ftIdProperty, Expression.Constant(3)); // ft.FilmId == 3
+
+        //    // Begin the OrElse statement
+        //    var ftStartTimeProperty = Expression.Property(ftParameter, "StartTime"); // ft.StartTime
+        //    var ftStartTimeFirstClause = Expression.LessThan(ftStartTimeProperty, Expression.Constant(beginTime)); // ft.StartTime < beginTime
+        //    var ftStartTimeSecondClause = Expression.GreaterThanOrEqual(ftStartTimeProperty, Expression.Constant(endTime)); // ft.StartTime >= endTime
+
+        //    // Or statement
+        //    var ftOrElseClause = Expression.OrElse(ftStartTimeFirstClause, ftStartTimeSecondClause); // (ft.StartTime < beginTime || ft.StartTime >= endTime)
+
+        //    // AndAlso statement 
+        //    var ftAndClause = Expression.AndAlso(ftIdClause, ftOrElseClause); // ft.FilmId == 3 &amp;&amp; (ft.StartTime < beginTime || ft.StartTime >= endTime)
+
+        //    // Lambda Expression
+        //    return Expression.Lambda<Func<RFQ, bool>>(ftAndClause, ftParameter);
+
+        //}
 
 
     }
