@@ -383,7 +383,7 @@
             });
 
             $("#recordNumber").change(function () {
-
+                pageCount = 0;
                 GetListFromService();
             });
 
@@ -430,7 +430,7 @@
                 });
             }
             $("#clearfilter").click(function () {
-                pageCount = 1;
+                pageCount = 0;
                 $('#searchForm')[0].reset();
                 $(".filter-option-inner-inner").each(function (e) {
                     $(".filter-option-inner-inner")[e].innerHTML = "Nothing selected";

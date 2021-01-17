@@ -20,7 +20,7 @@ namespace Helper
 
                 MailMessage mail = new MailMessage();
 
-                mail.From = new MailAddress("support@cncxportal.com", ConstantHelper.PlatformName);
+                mail.From = new MailAddress("support@isleme.net", ConstantHelper.PlatformName);
 
                 mail.To.Add(to);
 
