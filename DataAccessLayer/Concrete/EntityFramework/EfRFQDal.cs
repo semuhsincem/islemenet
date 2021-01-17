@@ -40,7 +40,7 @@ namespace DataAccessLayer.Concrete.EntityFramework
                         res = res.Where(x => x.RfqTechnologies.Select(v => v.TechnologyId).Any(y => model.SelectedTechnologies.Any(z => z == y.ToString())));
                     if (model.SelectedCertifications?.Length > 0)
                         res = res.Where(x => x.RfqCertifications.Select(v => v.CertificationId).Any(y => model.SelectedCertifications.Any(z => z == y.ToString())));
-                   
+
                     if (model.MinDiameter > 0)
                         res = res.Where(x => x.Diameter >= model.MaxDiameter);
                     if (model.MaxDiameter > 0)
@@ -67,6 +67,23 @@ namespace DataAccessLayer.Concrete.EntityFramework
                         res = res.Where(x => x.Quantity <= model.MaxQuantity);
                     return res.Skip(skip).Take(take).ToList();
                 }
+            }
+        }
+
+        public RFQ GetRFQAllIncludeById(int id)
+        {
+            using (var context = new CNCContext())
+            {
+
+                var res = context.Set<RFQ>()
+                    .Where(x => x.Id == id)
+                    .Include(x => x.RfqTechnologies).ThenInclude(x => x.Technology)
+                    .Include(x => x.RfqMaterials).ThenInclude(x => x.Material)
+                    .Include(x => x.RfqCertifications).ThenInclude(x => x.Certification)
+                    .Include(x => x.RfqFiles)
+                    .FirstOrDefault();
+                return res;
+
             }
         }
     }

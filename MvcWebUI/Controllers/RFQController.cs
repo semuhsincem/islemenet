@@ -93,13 +93,16 @@ namespace MvcWebUI.Controllers
                     UserId = user.Id
                 });
                 #region Dosyaları Ekle
-                List<string> filePaths = new List<string>();
-                foreach (var item in model.Files)
+                if (model.Files.Count> 0)
                 {
-                    var path = await UploadFile(item);
-                    filePaths.Add(path);
+                    List<string> filePaths = new List<string>();
+                    foreach (var item in model.Files)
+                    {
+                        var path = await UploadFile(item);
+                        filePaths.Add(path);
+                    }
+                    _rfqFileService.AddFileToRFQ(filePaths, rfq.Id, Enums.RFQHelpers.ECreateRfqFileType.Normal);
                 }
-                _rfqFileService.AddFileToRFQ(filePaths, rfq.Id, Enums.RFQHelpers.ECreateRfqFileType.Normal);
                 #endregion Dosya Ekle
                 #region Teknolojilerini Ekle
                 foreach (var item in model.SelectedTechnologies)
@@ -134,6 +137,14 @@ namespace MvcWebUI.Controllers
             var res = _rfqService.GetRfqWithIncludes(model);
             return Json(res);
         }
+        [HttpPost]
+        public async Task<IActionResult> GetRfqById(int id)
+        {
+            var res = _rfqService.GetRfqWithIncludesById(id);
+            var companyInfo = await _userManager.FindByIdAsync(res.UserId.ToString());
+            return Json(new { rfq = res, company = companyInfo });
+        }
+
 
         public CreateRFQViewModel FillModelSelectListItemsForCreateRFQViewModel(CreateRFQViewModel model)
         {
@@ -186,38 +197,7 @@ namespace MvcWebUI.Controllers
                 return string.Empty;
             }
         }
-
-        //protected override Expression<Func<RFQ, bool>> GetExpression()
-        //{
-        //    var beginTime = DateTimeOffset.Parse("2019-08-03 12:00");
-        //    var endTime = DateTimeOffset.Parse("2019-08-04 11:00");
-        //    // We want to build the expression for the "Where" clause
-
-        //    // Example of Query we will eventually run.
-        //    // context.FilmTimeEntities.Where(ft => ft.FilmId == 3 &amp;&amp; (ft.StartTime < beginTime || ft.StartTime >= endTime));
-
-        //    // Time to build up the clause in the ANY field
-        //    var ftParameter = Expression.Parameter(typeof(RFQ), "ft"); // ft =>
-
-        //    var ftIdProperty = Expression.Property(ftParameter, "FilmId"); // ft.FilmId
-        //    var ftIdClause = Expression.Equal(ftIdProperty, Expression.Constant(3)); // ft.FilmId == 3
-
-        //    // Begin the OrElse statement
-        //    var ftStartTimeProperty = Expression.Property(ftParameter, "StartTime"); // ft.StartTime
-        //    var ftStartTimeFirstClause = Expression.LessThan(ftStartTimeProperty, Expression.Constant(beginTime)); // ft.StartTime < beginTime
-        //    var ftStartTimeSecondClause = Expression.GreaterThanOrEqual(ftStartTimeProperty, Expression.Constant(endTime)); // ft.StartTime >= endTime
-
-        //    // Or statement
-        //    var ftOrElseClause = Expression.OrElse(ftStartTimeFirstClause, ftStartTimeSecondClause); // (ft.StartTime < beginTime || ft.StartTime >= endTime)
-
-        //    // AndAlso statement 
-        //    var ftAndClause = Expression.AndAlso(ftIdClause, ftOrElseClause); // ft.FilmId == 3 &amp;&amp; (ft.StartTime < beginTime || ft.StartTime >= endTime)
-
-        //    // Lambda Expression
-        //    return Expression.Lambda<Func<RFQ, bool>>(ftAndClause, ftParameter);
-
-        //}
-
+ 
 
     }
 }

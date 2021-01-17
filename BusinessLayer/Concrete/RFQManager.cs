@@ -36,5 +36,10 @@ namespace BusinessLayer.Concrete
         {
             return _advService.GetListAllInclude(model, skip,take).ToList();
         }
+
+        public RFQ GetRfqWithIncludesById(int id)
+        {
+            return _advService.GetRFQAllIncludeById(id);
+        }
     }
 }

@@ -1,0 +1,132 @@
+---------------------------------
+--Tüm istasyon numaralarını getir
+---------------------------------
+CREATE OR REPLACE FUNCTION TUM_ISTASYON_NUMARALARINI_GETIR ()
+   RETURNS TABLE (
+      ISTNO INT
+)
+AS $$
+BEGIN
+   RETURN QUERY SELECT
+      DISTINCT "ISTNO"
+   FROM
+      public."RAINS";
+END; $$
+LANGUAGE 'plpgsql';
+ 
+
+
+---------------------------------
+--Toplam İstasyon sayısını getir.
+---------------------------------
+CREATE OR REPLACE FUNCTION TOPLAM_ISTASYON_SAYISI ()
+   RETURNS SETOF BIGINT
+AS $$
+BEGIN
+   RETURN QUERY SELECT
+      count(DISTINCT "ISTNO")
+   FROM
+      public."RAINS"
+  WHERE
+     "ISTNO" > 1;
+END; $$
+ 
+LANGUAGE 'plpgsql';
+
+---------------------------------
+--YAGIS DETAY GETIR
+---------------------------------
+
+CREATE OR REPLACE FUNCTION YAGMUR_DETAY_GETIR (rainId BIGINT)
+   RETURNS SETOF public."RAINDETAILS"
+AS $$
+BEGIN
+    RETURN QUERY SELECT
+      	*
+   FROM
+      public."RAINDETAILS"
+  WHERE
+     "RAINSId" = rainId ORDER BY "DATATARIH";
+END; $$
+ 
+LANGUAGE 'plpgsql';
+
+---------------------------------
+--YILLIK YAGIS GETIR
+---------------------------------
+CREATE OR REPLACE FUNCTION YAGMUR_YILLIK_YAGIS_GETIR2 (yil BIGINT)
+  returns setof public."RAINDETAILS"
+AS $$
+BEGIN
+    RETURN QUERY SELECT
+      	*
+   FROM
+      public."RAINDETAILS"
+  WHERE
+     "YIL" = yil ORDER BY "DATATARIH";
+END; $$
+ 
+LANGUAGE 'plpgsql';
+ 
+
+
+---------------------------------
+--FİLTRELEYEREK YAĞIŞ GETİR
+---------------------------------
+
+CREATE OR ALTER -- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE OR REPLACE FUNCTION YAGIS_ARA 
+(
+	  p_ISTNO				INT = NULL	
+	 ,p_YIL					INT = NULL	
+	 ,p_AY					 INT = NULL	
+	 ,p_MEVSIM				INT = NULL	
+	 ,p_ISEROZIF				INT = NULL
+)
+RETURNS SETOF public."RAINS"
+AS $$          
+DECLARE v_SQL							TEXT;
+ v_ParameterDef					VARCHAR(500);
+BEGIN
+
+ 
+    v_ParameterDef :=    '@ISTNO			NVARCHAR(50),
+							@YIL			NVARCHAR(100),
+							@AY				NVARCHAR(100),
+							@MEVSIM			NVARCHAR(100),
+							@ISEROZIF				NVARCHAR(100)';
+ 
+    v_SQL := 'SELECT 
+						*
+					FROM public."RAINS" WHERE -1=-1 '; 
+ RAISE NOTICE 'Sorgu : %', v_SQL;
+ IF p_ISTNO IS NOT NULL AND CAST(p_ISTNO AS INT)  !=  0 THEN 
+v_SQL := v_SQL|| FORMAT(' AND "ISTNO" = %s', p_ISTNO);
+ END IF;
+RAISE NOTICE 'Sorgu : %', v_SQL;
+IF p_YIL IS NOT NULL AND CAST(p_YIL as INT) != 0 THEN 
+v_SQL := v_SQL|| FORMAT(' AND "YIL" = %s', p_YIL);
+END IF;
+RAISE NOTICE 'Sorgu : %', v_SQL;
+IF p_AY IS NOT NULL AND CAST(p_AY AS INT) != 0 THEN 
+v_SQL := v_SQL|| FORMAT(' AND "AY" = %s', p_AY);
+END IF;
+ RAISE NOTICE 'Sorgu : %', v_SQL;
+ IF p_MEVSIM IS NOT NULL AND  CAST(p_MEVSIM AS INT) !=  0 THEN 
+v_SQL := v_SQL|| FORMAT(' AND "MEVSIM" = %s',p_MEVSIM);
+ END IF;
+RAISE NOTICE 'Sorgu : %', v_SQL;
+IF p_ISEROZIF IS NOT NULL AND CAST(p_ISEROZIF AS INT) != 0 THEN 
+v_SQL := v_SQL|| ' AND CAST("TOPLAM_YAGIS" AS DECIMAL) > 76.0 OR CAST("INTEN15DK" AS DECIMAL) >15.0 ';
+END IF;
+ 
+RAISE NOTICE 'Sorgu : %', v_SQL;
+return query
+EXECUTE v_SQL;
+END; $$ 
+LANGUAGE 'plpgsql';
+
+
+DROP FUNCTION FilteringResult
+SELECT * FROM public."RAINS" WHERE "ISTNO" = 17040 
+	

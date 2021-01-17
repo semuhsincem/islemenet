@@ -14,5 +14,7 @@ namespace BusinessLayer.Abstract
 
         List<RFQ> GetAdvertisements(Expression<Func<RFQ, bool>> expression = null);
         List<RFQ> GetRfqWithIncludes(SearchRfqViewModel model = null, int skip=0, int take = 10);
+
+        RFQ GetRfqWithIncludesById(int id);
     }
 }
