@@ -145,6 +145,30 @@ namespace MvcWebUI.Controllers
             return Json(new { rfq = res, company = companyInfo });
         }
 
+        [HttpGet]
+        [Route("~/getfile/{id}")]
+        public IActionResult GetFile(int id)
+        {
+
+            var res = _rfqFileService.GetRfqFile(id);
+
+            var filepath = res.FilePath;
+
+            byte[] fileBytes;
+
+            if (System.IO.File.Exists(filepath))
+            {
+                fileBytes = System.IO.File.ReadAllBytes(filepath);
+            }
+            else
+            {
+                // Code to handle if file is not present
+                return null;
+            }
+            var filename = filepath.Split("\\").Last();
+            return File(fileBytes, "application/force-download", filename);
+        }
+
 
         public CreateRFQViewModel FillModelSelectListItemsForCreateRFQViewModel(CreateRFQViewModel model)
         {

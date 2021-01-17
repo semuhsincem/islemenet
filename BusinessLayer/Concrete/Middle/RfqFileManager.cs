@@ -34,5 +34,11 @@ namespace BusinessLayer.Concrete.Middle
                 _rfqFileDal.Add(new RfqFile() { RFQId = rfqId, FileType = fileType, FilePath = item });
             }
         }
+
+        public RfqFile GetRfqFile(int id)
+        {
+            var res = _rfqFileDal.Get(id);
+            return res;
+        }
     }
 }

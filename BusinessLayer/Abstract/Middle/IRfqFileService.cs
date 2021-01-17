@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract.Middle
         List<RfqFile> GetRfqFileByRFQId(int rfqId,ECreateRfqFileType fileType);
         void AddFileToRFQ(List<string> filePaths, int rfqId, ECreateRfqFileType fileType);
         void UpdateFilesToRFQ(List<string> filePath, int rfqId, ECreateRfqFileType fileType);
+        RfqFile GetRfqFile(int id);
     }
 }

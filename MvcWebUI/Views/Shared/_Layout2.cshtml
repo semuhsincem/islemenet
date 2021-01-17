@@ -449,11 +449,10 @@
                         $("#sertifikalar").html(certificates);
 
                         for (var i = 0; i < rfq.rfqFiles.length; i++) {
-                            files += "<a href='" + rfq.rfqFiles[i].filePath + "' target='_blanck'>File" + (i + 1) + "</a><br />";
+                            files += "<a href='/getfile/" + rfq.rfqFiles[i].id + "'>File" + (i + 1) + "</a><br />";
                         }
                         $("#documents").html(files);
                         console.log(res);
-                        $("#exampleModal").modal('show');
                     },
                     error: function (err) {
                         console.log(err);
