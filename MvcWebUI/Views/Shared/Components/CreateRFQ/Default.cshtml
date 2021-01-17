@@ -424,9 +424,13 @@
                         processData: false,
                         contentType: false,
                         success: function (res) {
+                            
                             swal("İlan Oluşturuldu.Artık ilanınızı listede görebilirsiniz.", {
                                 icon: "success",
                             });
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 2000);
                         }, error: function (err) {
                             swal("RFQ oluşturma işlemi sırasında bir hata meydana geldi.", { icon: "warning" });
                         }

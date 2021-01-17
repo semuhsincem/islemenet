@@ -134,7 +134,7 @@ namespace MvcWebUI.Controllers
         [HttpPost]
         public IActionResult GetRFQList([FromForm]SearchRfqViewModel model)
         {
-            var res = _rfqService.GetRfqWithIncludes(model);
+            var res = _rfqService.GetRfqWithIncludes(model,(model.RecordCount*model.Page),model.RecordCount);
             return Json(res);
         }
         [HttpPost]

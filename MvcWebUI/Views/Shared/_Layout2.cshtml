@@ -68,23 +68,40 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="modal-company-info">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="company-details">
+                                    <h6><b>AÇIKLAMA</b></h6>
+                                    <div class="company-desc">
+                                        <p id="temelaciklama">
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <hr />
                     <div class="description">
-                        <h6><b>AÇIKLAMA</b></h6>
+                        <h6><b>İŞ AYRINTILARI</b></h6>
                         <div class="desc-detail">
+
                             @*<img src="~/img/icons/lock.svg" alt="">*@
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="company-size">
                                     <h6><b>Oluşturulma Tarihi</b></h6>
                                     <p id="OlusturulmaTarihi"></p>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="company-size">
                                     <h6><b>Son Tarih</b></h6>
                                     <p id="SonTarih"></p>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="country">
                                     <h6><b>Teslim Tarihi</b></h6>
                                     <p id="TeslimTarihi"></p>
@@ -92,13 +109,25 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="country">
+                                    <h6><b>İhtiyaç Tipi</b></h6>
+                                    <p id="ihtiyac"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="country">
+                                    <h6><b>Miktar</b></h6>
+                                    <p id="miktar"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="country">
                                     <h6><b>Para Birimi</b></h6>
                                     <p id="ParaBirimi"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    <hr />
                     <div class="modal-company-info">
                         <div class="row">
                             <div class="col-md-12">
@@ -145,6 +174,7 @@
                             </div>
                         </div>
                     </div>
+                    <hr />
                     <div class="modal-company-info">
                         <div class="row">
                             <div class="col-md-12">
@@ -178,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                    <hr>
+                    <hr />
 
                     <div class="row">
                         <div class="col-md-6">
@@ -330,12 +360,11 @@
     -->
     <script type="text/javascript">
         $(function () {
-            var pageCount = 1;
+            var pageCount = 0;
             GetListFromService();
             $("#sayfaSayisiAzalt").hide();
             $("#sayfaSayisiArtir").on("click", function () {
                 pageCount++;
-                alert(pageCount);
                 if (pageCount >= 1) {
                     $("#sayfaSayisiAzalt").show();
                 }
@@ -343,7 +372,6 @@
             });
             $("#sayfaSayisiAzalt").on("click", function () {
                 pageCount--;
-                alert(pageCount);
                 if (pageCount <= 1) {
                     $("#sayfaSayisiAzalt").hide();
                 }
@@ -353,9 +381,7 @@
 
                 GetListFromService();
             });
-            function clickItem(id) {
-                alert(id);
-            }
+
             $("#recordNumber").change(function () {
 
                 GetListFromService();
@@ -366,6 +392,7 @@
                 var model = new FormData(_form);
                 model.append("page", pageCount);
                 model.append("recordCount", parseInt($("#recordNumber").val()));
+                model.append("searchkey", $("#searchKey").val())
                 $.ajax({
                     type: "POST",
                     url: "/RFQ/GetRFQList",
@@ -403,7 +430,13 @@
                 });
             }
             $("#clearfilter").click(function () {
-                alert("filter");
+                pageCount = 1;
+                $('#searchForm')[0].reset();
+                $(".filter-option-inner-inner").each(function (e) {
+                    $(".filter-option-inner-inner")[e].innerHTML = "Nothing selected";
+                });
+                GetListFromService();
+
             });
             $(document).on('click', 'tr', function (e) {
                 debugger;
@@ -424,6 +457,9 @@
                         $("#SonTarih").text(new Date(rfq.rfqDeadline).toLocaleDateString("tr-TR"));
                         $("#TeslimTarihi").text(new Date(rfq.delivaryDate).toLocaleDateString("tr-TR"));
                         $("#ParaBirimi").text(getOfferCurrency(rfq.offerCurrency));
+                        $("#temelaciklama").text(rfq.basicInformation);
+                        $("#miktar").text(rfq.quantity);
+                        $("#ihtiyac").text(getNeed(rfq.need));
                         $("#uzunluk").text(rfq.length);
                         $("#genislik").text(rfq.width);
                         $("#cap").text(rfq.diameter);
@@ -496,6 +532,17 @@
              else if (enumType === 5) {
                  return "2000-4999";
              }
+        }
+
+        function getNeed(ihtiyacTipi) {
+            ihtiyacTipi = parseInt(ihtiyacTipi);
+            if (ihtiyacTipi === 1) {
+                return "Tek Seferlik Gereksinim";
+            } else{
+                return "Yıllık Gereksinim";
+            }
+
+
         }
     </script>
 

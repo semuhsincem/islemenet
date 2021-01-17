@@ -34,6 +34,11 @@ namespace DataAccessLayer.Concrete.EntityFramework
                      .Include(x => x.RfqCertifications).ThenInclude(x => x.Certification)
                      .Include(x => x.RfqFiles).AsQueryable();
 
+                    if (!string.IsNullOrEmpty(model.Searchkey))
+                    {
+                        res = res.Where(x=>x.Title.Contains(model.Searchkey) || x.BasicInformation.Contains(model.Searchkey));
+                    }
+
                     if (model.SelectedMaterials?.Length > 0)
                         res = res.Where(x => x.RfqMaterials.Select(v => v.MaterialId).Any(y => model.SelectedMaterials.Any(z => z == y.ToString())));
                     if (model.SelectedTechnologies?.Length > 0)

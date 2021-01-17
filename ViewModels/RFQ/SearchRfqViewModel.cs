@@ -19,6 +19,7 @@ namespace ViewModels.RFQ
         public int MaxDiameter { get; set; }
         public int MinQuantity { get; set; }
         public int MaxQuantity { get; set; }
+        public string Searchkey { get; set; }
         public string[] SelectedTechnologies { get; set; }
         public string[] SelectedMaterials { get; set; }
         public string[] SelectedCertifications { get; set; }
