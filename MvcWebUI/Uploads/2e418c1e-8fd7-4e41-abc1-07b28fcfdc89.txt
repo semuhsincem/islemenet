@@ -1,0 +1,23 @@
+-- Table: public.RAINDETAILS
+
+-- DROP TABLE public."RAINDETAILS";
+
+CREATE TABLE public."RAINDETAILS"
+(
+    "Id" bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+    "RAINSId" bigint NOT NULL,
+    "DATATARIH" bigint,
+    "TOPLAM_YAGIS" numeric,
+    "BIRIM_YAGIS_ENERJISI" double precision,
+    "TOPLAM_YAGIS_ENERJISI" double precision,
+    "INTENCITY" double precision,
+    "YIL" integer,
+    "AY" integer,
+    "MEVSIM" integer,
+    CONSTRAINT "RAINDETAILS_pkey" PRIMARY KEY ("Id", "RAINSId")
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."RAINDETAILS"
+    OWNER to postgres;

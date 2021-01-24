@@ -1,0 +1,111 @@
+@import "color.css";
+
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--dark-blue);
+}
+
+.top-navbar {
+    background-color: var(--dark-blue);
+    padding: 1rem 0;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-address {
+    display: flex;
+}
+
+.contact-address span {
+    color: var(--light-blue);
+}
+
+.phone-number {
+    margin-right: 1rem;
+    padding-right: 1rem;
+    border-right: 1px solid var(--light-blue);
+}
+
+.topbar-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.topbar-buttons ul {
+    display: flex;
+    border-right: 1px solid var(--light-blue);
+    margin-bottom: 0;
+}
+
+.topbar-buttons li {
+    list-style-type: none;
+    margin-right: 1rem;
+}
+
+.topbar-buttons li a {
+    color: var(--light-blue);
+    text-decoration: none;
+}
+
+.topbar-buttons .language {
+    display: flex;
+    align-items: center;
+}
+
+.btn-change-language,
+.btn-change-language:hover {
+    background-color: transparent;
+    border: 0;
+    color: var(--light-blue);
+    margin-right: .2rem;
+}
+
+.navbar {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: var(--orange);
+}
+
+.btn-sign-up,
+.btn-sign-up:hover {
+    background-color: var(--orange);
+    color: white;
+    padding: .375rem 2rem;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+@media screen and (max-width: 768px) {
+    .topbar-buttons ul{
+        padding-left: 0;
+        margin-left: 0;
+        margin-top: .5rem;
+    }
+
+    .topbar-buttons .language {
+        margin-top: .5rem;
+    }
+
+}

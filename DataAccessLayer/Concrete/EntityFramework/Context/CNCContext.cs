@@ -29,7 +29,8 @@ namespace DataAccessLayer.Concrete.EntityFramework.Context
         public DbSet<RfqMaterial>  RfqMaterials { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=CNC;Trusted_Connection=True;");
+
+            optionsBuilder.UseSqlServer("Data Source=37.230.108.250;Initial Catalog=islemene_CNC; User ID=muhsincem;Password=A?m3Yy9&");
         }
     }
 }

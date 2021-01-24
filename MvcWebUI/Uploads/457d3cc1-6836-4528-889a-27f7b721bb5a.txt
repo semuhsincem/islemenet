@@ -1,0 +1,42 @@
+int sayac = 0;
+            Console.Write("1. Sayı : ");
+            List<int> teksayilar = new List<int>();
+            string teksayilarStr = "";
+            int s1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("2. Sayı : ");
+            int s2 = Convert.ToInt32(Console.ReadLine());
+            if (s1 == 1) //1 Asal Sayı olarak listelenmemesi için
+                s1++;
+            Console.WriteLine();
+            for (int sayi = s1; sayi <= s2; sayi++)
+            {
+                int kontrol = 0;
+
+                for (int i = 2; i < sayi; i++)
+                {
+                    if (sayi % i == 0) 
+                    {
+                        kontrol = 1;
+                        break;
+                    }
+                }
+                if (kontrol == 1)
+                {
+                    Console.WriteLine("{0} asal değidir", sayi);
+                }
+                else
+                {
+                    Console.WriteLine("{0} asaldır.", sayi);
+                    if (sayi % 2 == 1)
+                    {
+                        teksayilar.Add(sayi);
+                        teksayilarStr += sayi.ToString()+",";
+                    }
+                    sayac++; //www.yazilimkodlama.com
+                }
+
+            }
+            Console.WriteLine("Tek Sayılar : " + teksayilarStr.ToString());
+            
+            Console.WriteLine("Girdiğiniz sayılar arasında toplam {0} adet asal sayı var.", sayac);
+            Console.ReadKey();

@@ -34,7 +34,7 @@ namespace MvcWebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(_ => _.UseSqlServer("Server=.;Database=CNC;Trusted_Connection=True;"));
+            services.AddDbContext<AppDbContext>(_ => _.UseSqlServer("Data Source=37.230.108.250;Initial Catalog=islemene_CNC; User ID=muhsincem;Password=A?m3Yy9&"));
             services.AddIdentity<AppUser, AppRole>(opt=>
             {
                 opt.Password.RequireDigit = false;

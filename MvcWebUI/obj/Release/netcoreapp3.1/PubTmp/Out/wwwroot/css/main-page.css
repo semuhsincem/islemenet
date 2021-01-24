@@ -1,0 +1,300 @@
+.carousel-caption{
+    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+}
+
+.carousel-caption h1{
+    margin-bottom: 2rem;
+}
+
+.carousel-caption p{
+    margin-bottom: 4rem;
+}
+
+.btn-sign-in, .btn-sign-in:hover{
+    width: 163px;
+    height: 51px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: var(--orange);
+    color: white;
+}
+
+.benefits{
+    -webkit-box-shadow: 0px 0px 34px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 34px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 34px 0px rgba(0,0,0,0.5);
+    margin-top: 3rem;
+}
+
+.benefit{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.benefit img{
+    margin-right: 2rem;
+}
+
+.benefit-list-group h4{
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+}
+
+.benefit-list-group li{
+    color: var(--font-color);
+    margin-bottom: .7rem;
+}
+
+.infos{
+    margin-top: 6rem;
+}
+
+.page-message{
+    margin-bottom: 1.5rem;
+    color: var(--dark-blue);
+}
+
+.system-desc-header{
+    margin-top: 1rem;
+    color: var(--dark-blue);
+}
+
+.system-desc{
+    margin-top: 2rem;
+    color: var(--font-color);
+}
+
+.values{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.missions{
+    -webkit-box-shadow: 0px 0px 34px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 34px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 34px 0px rgba(0,0,0,0.5);
+    padding: 2rem;
+}
+
+
+.carousel-header{
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.3rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.carousel-header img{
+    margin-right: 1rem;
+}
+
+.carousel-header h4{
+    margin-bottom: 0;
+}
+
+.carousel-desc p{
+    color: var(--font-color);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.carousel-indicators{
+    margin: 0;
+    justify-content: start;
+    position: relative;
+}
+
+.carousel-indicators li{
+    background-color: #C4C4C4;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.carousel-indicators .active{
+    background-color: var(--orange);
+    width: 22px;
+    height: 10px;
+}
+
+
+.customer-comments{
+    background-color: var(--dark-blue);
+    height: 35rem;
+    position: relative;
+    margin-top: 5rem;
+}
+
+.customer-comments-bg{
+    background-image: url("/img/banner-1.png");
+    background-position: center;
+    background-size: cover;
+    opacity: .1;
+    height: 35rem;
+}
+
+.section-header{
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    color: white;
+}
+
+.comment-row{
+    position: absolute;
+    top: 10rem;
+    left: 4rem;
+    right: 4rem;
+}
+
+.comment-row .col-md-4{
+    border-right: 2px solid var(--light-blue);
+}
+
+
+.customer h4{
+    text-align: right;
+    color: var(--light-blue);
+    margin-bottom: 3rem;
+}
+
+.customer h6{
+    color: white;
+}
+
+.customer p{
+    color: var(--font-color);
+    margin-top: 2rem;
+}
+
+.brand-section-header{
+    text-align: center;
+    margin-top: 5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .carousel-caption{
+        top: 40%;
+    }
+    .carousel-caption h1{
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    .carousel-caption p{
+        font-size: .9rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn-sign-in{
+        height: 35px;
+        width: 140px;
+        font-size: .8rem;
+    }
+    .benefit{
+        padding: 1rem 2rem 2rem 2rem;
+    }
+    .benefit img{
+        margin-right: 1rem;
+    }
+
+    .missions{
+        margin-top: 2rem;
+    }
+    
+    .customer-comments{
+        height: 60rem;
+    }
+    .customer-comments-bg{
+        height: 60rem;
+    }
+
+    .section-header{
+        top: 2rem;
+        left: 1.5rem;
+    }
+
+    .comment-row{
+        top: 7rem;
+        left: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .comment-row .col-md-4{
+        border-right: 0;
+    }
+
+    .customer-brands img{
+        width: 50%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .carousel-caption{
+        top: 30%;
+    }
+    .carousel-caption h1{
+        font-size: 1.2rem;
+        margin-bottom: .5rem;
+    }
+    .carousel-caption p{
+        font-size: .9rem;
+        margin-bottom: .5rem;
+    }
+    .btn-sign-in{
+        height: 30px;
+        width: 125px;
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .carousel-caption{
+        top: 30%;
+    }
+    .carousel-caption h1{
+        font-size: 1rem;
+        margin-bottom: .5rem;
+    }
+    .carousel-caption p{
+        font-size: .7rem;
+        margin-bottom: .5rem;
+    }
+    .btn-sign-in{
+        height: 30px;
+        width: 125px;
+        font-size: .8rem;
+    }
+
+    .section-header h3{
+        padding-right: 10px;
+    }
+
+    .comment-row{
+        top: 9rem;
+        left: 1.5rem;
+        right: 1.5rem;
+    }
+}

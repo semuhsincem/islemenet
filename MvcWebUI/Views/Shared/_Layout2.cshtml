@@ -52,7 +52,7 @@
     <script src="~/plugins/jquery.validation/jquery.validate.min.js"></script>
     <script src="~/plugins/jquery.validation.unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/plugins/jquery.ajax.unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
-    <title>Order Fox - Main Page Table</title>
+    <title>isleme.net - Main Page Table</title>
 </head>
 
 <body>
@@ -264,9 +264,9 @@
     <!-- Modal -->
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="#"><img src="~/img/order-fox-logo.svg" alt=""> <span>NEW</span></a>
-
-
+        @*<a class="navbar-brand" href="#"><img src="~/img/order-fox-logo.svg" alt=""> <span>NEW</span></a>*@
+        <a class="navbar-brand" href="#"><img src="~/img/logos/cnclogo.png" width="150" height="75" alt=""> 
+        </a>
         <div id="navbarSupportedContent">
             <ul class="navbar-list">
                 <li class="nav-item">
@@ -310,7 +310,7 @@
     <footer class="border border-top">
         <div class="footer-main-page-content">
             <div class="copyright">
-                <span>Copyright © <a href="http://" target="_blank">ORDERFOX AG</a></span>
+                <span>Copyright © <a href="http://" target="_blank">isleme.net AG</a></span>
             </div>
             <ul>
                 <li><a href="">Datenschutz</a></li>
@@ -400,6 +400,7 @@
                     processData: false,
                     contentType: false,
                     success: function (data, textStatus, jqXHR) {
+                        debugger;
                         $("#normalList").html("");
                         console.log(data);
                         for (var i = 0; i < data.length; i++) {
@@ -413,9 +414,10 @@
                             a += " <td>" + data[i].quantity + "</td>";
                             a += "<td>" + deadline.toLocaleDateString("tr-TR") + "</td>";
                             a += "<td>" + deliver.toLocaleDateString("tr-TR") + "</td>";
-                            a += "<td>" + (data[i].rfqTechnologies.length > 2 ? data[i].rfqTechnologies[0].technology.technologyName + " ..." : data[i].rfqTechnologies[0].technology.technologyName) + "</td>";
-                            a += "<td>" + (data[i].rfqCertifications.length > 2 ? data[i].rfqCertifications[0].certification.certificateName + " ..." : data[i].rfqCertifications[0].certification.certificateName) + "</td>";
-                            a += "<td>" + (data[i].rfqMaterials.length > 2 ? data[i].rfqMaterials[0].material.materialName + " ..." : data[i].rfqMaterials[0].material.materialName) + "</td>";
+                            debugger;
+                            a += "<td>" + (data[i].rfqTechnologies.length > 2 ? data[i].rfqTechnologies[0].technology?.technologyName + " ..." : data[i].rfqTechnologies[0].technology.technologyName) + "</td>";
+                            a += "<td>" + (data[i].rfqCertifications.length > 2 ? data[i].rfqCertifications[0].certification?.certificateName + " ..." : data[i].rfqCertifications[0].certification.certificateName) + "</td>";
+                            a += "<td>" + (data[i].rfqMaterials.length > 2 ? data[i].rfqMaterials[0].material?.materialName + " ..." : data[i].rfqMaterials[0].material.materialName) + "</td>";
                             a += "<td>" + data[i].rfqFiles.length + "</td>";
                             a += "<tr />";
                             //a += " <td  class='detailItems'><i class='fas fa-ellipsis-v'  ></i></td>";

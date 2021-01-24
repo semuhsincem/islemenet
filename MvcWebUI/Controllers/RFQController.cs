@@ -71,64 +71,72 @@ namespace MvcWebUI.Controllers
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] CreateRFQViewModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var user = await _userManager.GetUserAsync(User);
-                var rfq = _rfqService.AddAdvertisment(new RFQ()
+                if (ModelState.IsValid)
                 {
-                    Title = model.Title,
-                    BasicInformation = model.BasicInformation,
-                    CustomRFQId = model.CustomRFQId,
-                    OfferCurrency = model.OfferCurrency,
-                    DelivaryDate = model.DeliveryDate,
-                    Width = model.Width,
-                    Height = model.Height,
-                    Diameter = model.Diameter,
-                    Length = model.Length,
-                    MinTol = model.MinTol,
-                    Need = model.Need,
-                    PublicationSettingsType = model.PublicationSettingsId,
-                    Quantity = model.Quantity.HasValue ? model.Quantity.Value : 1,
-                    RFQDeadline = model.RFQDeadline,
-                    UserId = user.Id
-                });
-                #region Dosyaları Ekle
-                if (model.Files.Count> 0)
-                {
-                    List<string> filePaths = new List<string>();
-                    foreach (var item in model.Files)
+                    var user = await _userManager.GetUserAsync(User);
+                    var rfq = _rfqService.AddAdvertisment(new RFQ()
                     {
-                        var path = await UploadFile(item);
-                        filePaths.Add(path);
-                    }
-                    _rfqFileService.AddFileToRFQ(filePaths, rfq.Id, Enums.RFQHelpers.ECreateRfqFileType.Normal);
-                }
-                #endregion Dosya Ekle
-                #region Teknolojilerini Ekle
-                foreach (var item in model.SelectedTechnologies)
-                    _rfqTechnologyService.Add(new RfqTechnology() { RFQId = rfq.Id, TechnologyId = Convert.ToInt32(item) });
-
-                #endregion
-                #region Materyalleri Ekle
-                foreach (var item in model.SelectedMaterials)
-                    _rfqMaterialService.Add(new RfqMaterial() { RFQId = rfq.Id, MaterialId = Convert.ToInt32(item) });
-                #endregion
-                #region Sertifika Ekle
-                foreach (var item in model.SelectedCertifications)
-                    _rfqCertificationService.Add(new RfqCertification() { RFQId = rfq.Id, CertificationId = Convert.ToInt32(item) });
-                #endregion
-                if (model.PublicationSettingsId == 2)
-                {
-                    List<int> selectedList = new List<int>();
-                    model.SelectedCountries.ToList().ForEach(x =>
-                    {
-                        selectedList.Add(Convert.ToInt32(x));
+                        Title = model.Title,
+                        BasicInformation = model.BasicInformation,
+                        CustomRFQId = model.CustomRFQId,
+                        OfferCurrency = model.OfferCurrency,
+                        DelivaryDate = model.DeliveryDate,
+                        Width = model.Width,
+                        Height = model.Height,
+                        Diameter = model.Diameter,
+                        Length = model.Length,
+                        MinTol = model.MinTol,
+                        Need = model.Need,
+                        PublicationSettingsType = model.PublicationSettingsId,
+                        Quantity = model.Quantity.HasValue ? model.Quantity.Value : 1,
+                        RFQDeadline = model.RFQDeadline,
+                        UserId = user.Id
                     });
+                    #region Dosyaları Ekle
+                    if (model.Files?.Count > 0)
+                    {
+                        List<string> filePaths = new List<string>();
+                        foreach (var item in model.Files)
+                        {
+                            var path = await UploadFile(item);
+                            filePaths.Add(path);
+                        }
+                        _rfqFileService.AddFileToRFQ(filePaths, rfq.Id, Enums.RFQHelpers.ECreateRfqFileType.Normal);
+                    }
+                    #endregion Dosya Ekle
+                    #region Teknolojilerini Ekle
+                    foreach (var item in model.SelectedTechnologies)
+                        _rfqTechnologyService.Add(new RfqTechnology() { RFQId = rfq.Id, TechnologyId = Convert.ToInt32(item) });
 
-                    _rFQCountryService.AddCountriesToRFQ(selectedList, rfq.Id);
+                    #endregion
+                    #region Materyalleri Ekle
+                    foreach (var item in model.SelectedMaterials)
+                        _rfqMaterialService.Add(new RfqMaterial() { RFQId = rfq.Id, MaterialId = Convert.ToInt32(item) });
+                    #endregion
+                    #region Sertifika Ekle
+                    foreach (var item in model.SelectedCertifications)
+                        _rfqCertificationService.Add(new RfqCertification() { RFQId = rfq.Id, CertificationId = Convert.ToInt32(item) });
+                    #endregion
+                    if (model.PublicationSettingsId == 2)
+                    {
+                        List<int> selectedList = new List<int>();
+                        model.SelectedCountries.ToList().ForEach(x =>
+                        {
+                            selectedList.Add(Convert.ToInt32(x));
+                        });
+
+                        _rFQCountryService.AddCountriesToRFQ(selectedList, rfq.Id);
+                    }
                 }
+                return Json(new { success = true });
             }
-            return Json(new { success = true });
+            catch (Exception ex)
+            {
+
+                return Json(new { success = false });
+            }
         }
 
         [HttpPost]

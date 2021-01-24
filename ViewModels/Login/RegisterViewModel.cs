@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace ViewModels.Login
 {
@@ -12,7 +11,7 @@ namespace ViewModels.Login
         public bool IsBuyer { get; set; }
         [Display(Name="ŞİRKET ADI*"),Required(ErrorMessage ="ŞİRKET ADI alanı boş geçilemez.")]
         public string CompanyName { get; set; }
-        [Display(Name = "CADDE"),Required(ErrorMessage ="CADDE alanı boş geçilemez.")]
+        [Display(Name = "CADDE"),DataType(DataType.Text),Required(ErrorMessage ="CADDE alanı boş geçilemez.")]
         public string State { get; set; }
         public ERegisterRoleType ERegisterRoleType { get; set; }
         [Display(Name = "TELEFON NUMARASI*"), DataType(DataType.PhoneNumber), Required(ErrorMessage = "TELEFON NUMARASI alanı boş geçilemez.")]

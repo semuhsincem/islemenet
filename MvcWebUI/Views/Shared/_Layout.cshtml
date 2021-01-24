@@ -32,19 +32,19 @@
             <div class="contact-address">
                 <div class="phone-number">
                     <img src="~/img/logos/logo_photo/icons8-phone-24 (1).png" />
-                    <span>+0-625-07520-664</span>
+                    <span>+90 543 8766246 | +90 506 112 45 89 </span>
                 </div>
                 <div class="email-address">
                     <img src="~/img/logos/logo_photo/icons8-mail-50 (1).png" width="24" height="24" alt="" />
-                    <span>info@example.com</span>
+                    <span>info@isleme.net</span>
                 </div>
             </div>
             <div class="topbar-buttons">
-                <ul>
-                    <li><a href="">Careers</a></li>
-                    <li><a href="">Feedback</a></li>
-                    <li><a href="">Updates</a></li>
-                </ul>
+                @*<ul>
+                    <li><a href="">Kariyer</a></li>
+                    <li><a href="">Geri Dönüşler</a></li>
+                    <li><a href="">Güncellemeler</a></li>
+                </ul>*@
                 <div class="language">
                     <button class="btn btn-change-language">
                         <img src="~/img/eng-flag.svg" alt="">
@@ -61,7 +61,7 @@
 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="#"><img src="img/order-fox-logo.svg" alt=""></a>
+        <a class="navbar-brand" href="/AnaSayfa"><img src="~/img/logos/cnclogo.png" width="150" height="75" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -70,33 +70,33 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/AnaSayfa">Home </a>
+                    <a class="nav-link" href="/AnaSayfa">Ana Sayfa </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Buyers</a>
+                    <a class="nav-link" href="#">Satıcılar</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Manufacturers</a>
+                    <a class="nav-link " href="#">Üreticiler</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="/Pricing/Index">Pricing</a>
+                    <a class="nav-link " href="/Pricing/Index">Fiyatlandırma</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Services</a>
+                    <a class="nav-link " href="#">Hizmetler</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="#">About Us</a>
+                    <a class="nav-link " href="#">Hakkımızda</a>
                 </li>
             </ul>
             <div class="row">
                 <div class="col-md-7">
                     <form class="form-inline my-2 my-lg-0" asp-action="Register" asp-controller="Login" method="Get">
-                        <button class="btn btn-sign-up my-2 my-sm-0">Yeni Kayıt</button>
+                        <button class="btn btn-sign-up my-2 my-sm-0">Kayıt Ol</button>
                     </form>
                 </div>
                 <div class="col-md-5">
@@ -117,8 +117,8 @@
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                    <img src="~/img/order-fox-footer-logo.svg" alt="">
+                <div class="col-md-4"> 
+                    <img src="~/img/logos/cnclogo.png" width="150" height="75" />
                     <div class="social-media-icons">
                         <div class="facebook social-media-icon">
                             <a href="https://www.facebook.com" target="_blank">
@@ -154,33 +154,32 @@
                     <h5 class="footer-section-header">isleme.net</h5>
                     <img src="~/img/footer-section-border.svg" alt="">
                     <ul class="footer-links">
-                        <li><a href="">Advantages for Buyers</a></li>
-                        <li><a href="">Find CNC capacity</a></li>
-                        <li><a href="">Buyers challenge</a></li>
-                        <li><a href="">Currently available RFQs</a></li>
-                        <li><a href="">Advantages for Manufacturers</a></li>
-                        <li><a href="">Maximize CNC profits</a></li>
+                        <li><a href="">Alıcılar için Avantajlar</a></li>
+                        <li><a href="">CNC kapasitesini bulun</a></li>
+                        <li><a href="">Şu anda mevcut RFQ'lar</a></li>
+                        <li><a href="">Üreticiler İçin Avantajlar</a></li>
+                        <li><a href="">CNC karını maksimize edin</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2">
-                    <h5 class="footer-section-header">About Us</h5>
+                    <h5 class="footer-section-header">Hakkımızda</h5>
                     <img src="~/img/footer-section-border.svg" alt="">
                     <ul class="footer-links">
-                        <li><a href="">Company</a></li>
-                        <li><a href="">Jobs</a></li>
-                        <li><a href="">News</a></li>
-                        <li><a href="">Press Review</a></li>
-                        <li><a href="">Press</a></li>
+                        <li><a href="">Şirket</a></li>
+                        <li><a href="">Kariyer</a></li>
+                        <li><a href="">Haberler</a></li>
+                        <li><a href="">Basın Araştırması</a></li>
+                        <li><a href="">Basın</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2">
-                    <h5 class="footer-section-header">Help & Support</h5>
+                    <h5 class="footer-section-header">Yardım & Destek</h5>
                     <img src="~/img/footer-section-border.svg" alt="">
                     <ul class="footer-links">
-                        <li><a href="">Contact</a></li>
-                        <li><a href="">FAQs</a></li>
-                        <li><a href="">Login</a></li>
-                        <li><a href="">Register</a></li>
+                        <li><a href="">İletişim</a></li>
+                        <li><a href="">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="">Giriş</a></li>
+                        <li><a href="">Kayıt Ol</a></li>
                     </ul>
                 </div>
             </div>
@@ -194,11 +193,11 @@
                         <span>Copyright © <a href="http://" target="_blank">isleme.net</a></span>
                     </div>
                     <ul>
-                        <li><a href="">Privacy</a></li>
-                        <li><a href="">Policy</a></li>
-                        <li><a href="">Legal Notice</a></li>
+                        <li><a href="">Gizlilik</a></li>
+                        <li><a href="">Politikalar</a></li>
+                        <li><a href="">Yasal Haklar</a></li>
                         <li><a href="">T&Cs</a></li>
-                        <li><a href="http://" target="_blank">SUBSCRIBE TO NEWSLETTER</a></li>
+                        <li><a href="http://" target="_blank">BÜLTENE KAYIT OL</a></li>
                     </ul>
                 </div>
             </div>

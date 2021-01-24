@@ -1,0 +1,57 @@
+.login-div{
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+}
+
+.page-header{
+    font-weight: bolder;
+    padding-bottom: 40px;
+}
+
+.login-form-group{
+    border: 1px solid var(--border-dark-color);
+    padding-left: 1rem;
+    padding-top: 3px;
+}
+
+.login-form-group small{
+    text-align: left;
+}
+
+.login-form-control{
+    border: 0;
+    padding: 0;
+    height: 30px;
+}
+
+.forget-password{
+    text-align: right;
+    margin-bottom: 2rem;
+}
+
+.forget-password a{
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+
+.btn-login-submit, .btn-login-submit:hover{
+    background-color: var(--orange);
+    height: 54px;
+    color: white;
+}
+
+.register-div{
+    text-align: center;
+    color: var(--dark-blue);
+    margin-top: 1rem;
+}
+
+.register-div p{
+    margin-bottom: 0;
+}
+
+.register-div a{
+    color: var(--dark-blue);
+    text-decoration: underline;
+}

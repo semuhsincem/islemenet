@@ -1,0 +1,422 @@
+body {
+    background-color: var(--main-bg-color);
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand > span {
+    color: white;
+    background-color: var(--orange);
+    padding: .5rem;
+    font-size: 10px;
+    margin-left: .5rem;
+}
+
+.notification-dropdown:after,
+.btn-table-dropdown:after /*dropdown simgesi gizlemek için*/ {
+    content: none;
+    position: relative;
+}
+
+.notification-number {
+    position: absolute;
+    color: white;
+    background-color: var(--orange);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    top: 5px;
+    right: 5px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.btn-change-language {
+    color: var(--dark-blue) !important;
+    padding: 0;
+}
+
+.tab-menu-buttons {
+    background-color: var(--dark-blue);
+    padding: 2rem 2rem 2rem .2rem;
+}
+
+.tab-menu-button {
+    background-color: var(--orange);
+    color: white;
+    margin-left: 1rem;
+}
+
+    .tab-menu-button .nav-link {
+        color: white;
+    }
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: white;
+    color: var(--dark-blue);
+}
+
+.tab-header {
+    background: var(--orange);
+    padding: 1.5rem 1rem 5rem 1rem;
+    color: white;
+}
+
+.filter-div,
+.table-div {
+    margin-top: -3.5rem;
+    background-color: white;
+    padding-bottom: 1.5rem;
+}
+
+.filter-header {
+    padding: 1rem 1.5rem .7rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header {
+    padding: .25rem .75rem;
+    background-color: white;
+}
+
+    .card-header button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .card-header button > p {
+            margin-bottom: 0;
+        }
+
+.btn-search-filter,
+.btn-search-filter:hover,
+.btn-create-rfq,
+.btn-create-rfq:hover {
+    background-color: var(--orange);
+    height: 54px;
+    color: white;
+    margin-top: 2rem;
+}
+
+    .btn-save-rfq,
+    .btn-save-rfq:hover {
+        background-color: var(--orange);
+        height: 54px;
+        color: white;
+        margin-top: 2rem;
+    }
+
+.btn-reset-filter,
+.btn-reset-filter:hover {
+    background: transparent;
+    border: 0;
+    color: var(--orange);
+}
+
+.main-data-list th,
+.main-data-list td,
+.main-data-list tr {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+table tr td:first-child input {
+    margin-right: .5rem;
+}
+
+.filter-time-div {
+    display: flex;
+    align-items: center;
+}
+
+.table-nav-pills {
+    align-items: center;
+}
+
+    .table-nav-pills .nav-link.active, .table-nav-pills .show > .nav-link, .table-nav-pills .nav-link.active, .table-nav-pills .show > .nav-link .current-no {
+        color: var(--orange);
+        border-color: var(--orange);
+    }
+
+    .table-nav-pills .nav-link {
+        color: var(--dark-blue);
+        border-color: var(--dark-blue);
+    }
+
+.current-no, .last-30-days-no {
+    margin-left: .5rem;
+    border: 2px solid;
+    padding: .1rem .5rem;
+    font-size: 13px;
+}
+
+.filter-sorting {
+    color: var(--dark-blue);
+    padding: 1rem;
+}
+
+.filter-searchbox-div {
+    margin-bottom: 0;
+}
+
+.navigate-buttons {
+    float: right;
+}
+
+.modal-body {
+    color: var(--font-color);
+    padding: 2rem;
+}
+
+.modal-footer .row {
+    width: 100%;
+    align-items: center;
+}
+
+.desc-detail, .company-desc, .files-desc {
+    display: flex;
+    align-items: flex-start;
+}
+
+    .desc-detail p, .company-desc p, .files-desc p {
+        margin-bottom: 0;
+        margin-left: 1rem;
+    }
+
+.dimensions ul {
+    padding-left: 0;
+}
+
+.dimensions li {
+    list-style-type: none;
+}
+
+.detail-info {
+    text-align: center;
+}
+
+.view-left {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+    .view-left h1, .view-left h5 {
+        margin-bottom: 0;
+    }
+
+.modal-company-info {
+    margin-top: 1.5rem;
+}
+
+.btn-access-details, .btn-access-details:hover {
+    background-color: var(--orange);
+    height: 50px;
+    color: white;
+}
+
+.btn-save, .btn-save:hover {
+    border: 2px solid var(--orange);
+    background-color: transparent;
+    color: var(--orange);
+    height: 50px;
+    width: 50px;
+}
+
+
+.create-rfq-div,
+.new-companies {
+    background-color: white;
+    padding: 1rem;
+}
+
+.company {
+    border: 2px solid var(--orange);
+}
+
+    .company .card-body {
+        padding: 1rem 1.25rem;
+    }
+
+    .company .card-title {
+        margin-bottom: 0;
+    }
+
+.page-item {
+    margin-right: 1rem;
+}
+
+.new-companies-list {
+    padding-left: 1rem;
+}
+
+    .new-companies-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        list-style-type: none;
+    }
+
+        .new-companies-list li::before {
+            content: "\25FC";
+            color: var(--orange);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+.new-companies h6 {
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: transparent !important;
+    padding-top: 0.5rem !important;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.footer-main-page-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+    margin-top: 1rem;
+}
+
+    .footer-main-page-content .copyright span {
+        color: var(--dark-blue) !important;
+    }
+
+    .footer-main-page-content ul {
+        display: flex;
+        list-style-type: none;
+        margin-bottom: 0;
+    }
+
+    .footer-main-page-content li {
+        margin-right: 1rem;
+    }
+
+        .footer-main-page-content li a {
+            color: var(--font-color);
+        }
+
+.input-group-text {
+    background-color: transparent;
+    border: 0;
+}
+
+.social-media-icon {
+    background-color: transparent !important;
+    border: 2px solid var(--border-dark-color);
+}
+
+.facebook,
+.facebook a {
+    color: #3D8BE8 !important;
+    border-color: #3D8BE8;
+}
+
+.twitter,
+.twitter a {
+    color: #2BB1EF !important;
+    border-color: #2BB1EF;
+}
+
+.youtube,
+.youtube a {
+    color: #F70003 !important;
+    border-color: #F70003;
+}
+
+.instagram,
+.instagram a {
+    color: #AC4299 !important;
+    border-color: #AC4299;
+}
+
+.linkedin,
+.linkedin a {
+    color: #1978B3 !important;
+    border-color: #1978B3;
+}
+
+.social-media-icons {
+    display: flex;
+    align-items: center;
+    margin-top: 0 !important;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        justify-content: space-around;
+    }
+
+    .tab-menu-button {
+        margin-top: 1rem;
+    }
+
+    .company {
+        margin-top: 2rem;
+    }
+
+    .table-nav-pills {
+        justify-content: center;
+        margin-top: 5rem;
+        padding-top: 1rem;
+    }
+
+    .last-30-days {
+        margin-right: 0 !important;
+    }
+
+    .filter-searchbox-div {
+        padding: 1rem;
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    .filter-sorting {
+        width: 100%;
+    }
+
+    .table-pagination .col-md-4, .table-pagination .col-md-5, .table-pagination .col-md-3 {
+        margin-top: 1rem;
+    }
+
+    .modal-footer .row .col-md-6:first-child {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+}
+
+@media screen and (max-width: 370px) {
+}

@@ -1,0 +1,9 @@
+C:\Users\ASUS\Documents\GitHub\islemenet\Enums\bin\Release\netcoreapp3.1\Enums.deps.json
+C:\Users\ASUS\Documents\GitHub\islemenet\Enums\bin\Release\netcoreapp3.1\Enums.dll
+C:\Users\ASUS\Documents\GitHub\islemenet\Enums\bin\Release\netcoreapp3.1\Enums.pdb
+C:\Users\ASUS\Documents\GitHub\islemenet\Enums\obj\Release\netcoreapp3.1\Enums.csprojAssemblyReference.cache
+C:\Users\ASUS\Documents\GitHub\islemenet\Enums\obj\Release\netcoreapp3.1\Enums.AssemblyInfoInputs.cache
+C:\Users\ASUS\Documents\GitHub\islemenet\Enums\obj\Release\netcoreapp3.1\Enums.AssemblyInfo.cs
+C:\Users\ASUS\Documents\GitHub\islemenet\Enums\obj\Release\netcoreapp3.1\Enums.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Documents\GitHub\islemenet\Enums\obj\Release\netcoreapp3.1\Enums.dll
+C:\Users\ASUS\Documents\GitHub\islemenet\Enums\obj\Release\netcoreapp3.1\Enums.pdb

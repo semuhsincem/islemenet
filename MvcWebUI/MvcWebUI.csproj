@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>795b7d9d-e866-44f4-974c-8862e2b930ab</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,6 +33,8 @@
 
   <ItemGroup>
     <Folder Include="NewFolder\" />
+    <Folder Include="wwwroot\assets\plugins\" />
+    <Folder Include="wwwroot\Uploads\" />
   </ItemGroup>
 
 
